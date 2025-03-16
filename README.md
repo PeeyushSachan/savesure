@@ -7,6 +7,7 @@
 │   │   ├── auth_service.dart
 │   │   ├── database_service.dart
 │   │   ├── local_storage.dart
+|   |   
 │   │   
 │   │
 │   ├── theme
