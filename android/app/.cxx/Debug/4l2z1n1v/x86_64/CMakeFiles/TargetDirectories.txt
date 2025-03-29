@@ -1,0 +1,2 @@
+C:/Users/imrat/savesure-1/android/app/.cxx/Debug/4l2z1n1v/x86_64/CMakeFiles/edit_cache.dir
+C:/Users/imrat/savesure-1/android/app/.cxx/Debug/4l2z1n1v/x86_64/CMakeFiles/rebuild_cache.dir
