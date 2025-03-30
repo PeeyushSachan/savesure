@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:savesure/view/home/tab/coupans_card_tab.dart';
 import 'package:savesure/view/home/tab/myevent_card_tab.dart';
 import 'package:savesure/view/home/tab/warrenty_card_tab.dart';
+import 'package:savesure/view/notification/cards_notification.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -31,59 +32,70 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actions: [Title(color: Colors.black, child: Text("AppBar"))],
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: Row(
-          spacing: 2,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              height: 101,
-              width: 296,
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  border: Border.all(
-                      color: Colors.orangeAccent.shade100, width: 1.5),
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40))),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  _NavItem(
-                    icon: Icons.sync,
-                    label: 'Warranty',
-                    selected: selectedNavigationIndex == 0,
-                    onTap: () => _onTabTap(0),
-                  ),
-                  _NavItem(
-                    icon: Icons.event,
-                    label: 'Events',
-                    selected: selectedNavigationIndex == 1,
-                    onTap: () => _onTabTap(1),
-                  ),
-                  _NavItem(
-                    icon: Icons.card_giftcard,
-                    label: 'Coupans',
-                    selected: selectedNavigationIndex == 2,
-                    onTap: () => _onTabTap(2),
-                  ),
-                ],
+      bottomNavigationBar: Material(
+        color: Colors.transparent,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            spacing: 2,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                height: 101,
+                width: 296,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(
+                        color: Colors.orangeAccent.shade100, width: 1.5),
+                    borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    _NavItem(
+                      icon: Icons.sync,
+                      label: 'Warranty',
+                      selected: selectedNavigationIndex == 0,
+                      onTap: () => _onTabTap(0),
+                    ),
+                    _NavItem(
+                      icon: Icons.event,
+                      label: 'Events',
+                      selected: selectedNavigationIndex == 1,
+                      onTap: () => _onTabTap(1),
+                    ),
+                    _NavItem(
+                      icon: Icons.card_giftcard,
+                      label: 'Coupans',
+                      selected: selectedNavigationIndex == 2,
+                      onTap: () => _onTabTap(2),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Container(
-              height: 74,
-              width: 74,
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(37)),
-              child: Icon(
-                Icons.add,
-                size: 50,
-                color: Colors.white,
-              ),
-            )
-          ],
+              InkWell(
+                child: Container(
+                  height: 74,
+                  width: 74,
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(37)),
+                  child: Icon(
+                    Icons.add,
+                    size: 50,
+                    color: Colors.white,
+                  ),
+                ),
+                onTap: () {
+                
+                  showLocalNotification();
+                },
+              )
+            ],
+          ),
         ),
       ),
       body: allBottomTab[selectedNavigationIndex],
@@ -108,20 +120,25 @@ class _NavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = selected ? Colors.pink : Colors.black87;
 
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, color: color),
-          const SizedBox(height: 4),
-          Text(
-            label,
-            style: TextStyle(
+      borderRadius: BorderRadius.circular(12), // Optional ripple radius
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, color: color),
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: TextStyle(
                 color: color,
-                fontWeight: selected ? FontWeight.bold : FontWeight.normal),
-          ),
-        ],
+                fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
