@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:savesure/view/auth/forgot_password_screen.dart';
 import 'package:savesure/view/home/home_screen.dart';
 import 'package:savesure/view/notification/cards_notification.dart'; // आपकी स्क्रीन
 
@@ -19,7 +20,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(), // आपकी main screen
+      home: ForgotPasswordScreen(), // आपकी main screen
     );
   }
 }

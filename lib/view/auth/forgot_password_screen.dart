@@ -28,11 +28,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               children: [
                 Flexible(
                   child: Image.asset(
-                    "assets/image 5.png",
+                    "assets/mail.png",
                     width: screenWidth * 0.15, // Scales dynamically
                   ),
                 ),
-                  SizedBox(width: screenWidth * 0.03),
+                SizedBox(width: screenWidth * 0.03),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
