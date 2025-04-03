@@ -26,32 +26,57 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Flexible(
+                SizedBox(
                   child: Image.asset(
-                    "assets/mail.png",
+                    "assets/image 5.png",
                     width: screenWidth * 0.15, // Scales dynamically
                   ),
                 ),
                 SizedBox(width: screenWidth * 0.03),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Forget Your Password?",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenWidth * 0.06, // Adjusts dynamically
+                /*   Expanded(
+                  child: SizedBox(
+                  
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Forget Your Password?",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: screenWidth * 0.06, // Adjusts dynamically
+                          ),
                         ),
-                      ),
-                      SizedBox(height: screenHeight * 0.005),
-                      Text(
-                        "Please Enter Your Email Address",
-                        style: TextStyle(fontSize: screenWidth * 0.04),
-                      ),
-                    ],
+                        SizedBox(height: screenHeight * 0.005),
+                        Text(
+                          "Please Enter Your Email Address",
+                          style: TextStyle(fontSize: screenWidth * 0.04),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+                ), */
+
+                Expanded(
+                  child:SizedBox(
+
+                    width: screenWidth*0.8,
+                    
+                    child: RichText(
+                        text: TextSpan(
+                            text: "Forget Your Password? \n",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: screenWidth * 0.06, // Adjusts dynamically
+                            ),
+                            children: [
+                          TextSpan(
+                            text: "Please Enter Your Email Address",
+                            style: TextStyle(fontSize: screenWidth * 0.04),
+                          )
+                        ])),
+                  ),
+                )
               ],
             ),
             SizedBox(height: screenHeight * 0.04),
