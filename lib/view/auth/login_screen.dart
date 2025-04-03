@@ -299,21 +299,57 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      SizedBox(
+                      /* SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15)),
-                            backgroundColor: Colors.deepOrange,
+                          backgroundColor: Colors.deepOrange,
                           ),
                           onPressed: () {},
                           child: Text("Submit",
                               style:
                                   TextStyle(color: Colors.white, fontSize: 15)),
                         ),
+                      ),*/
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0xFFFA6C12),
+                                Color(0xFFC64AA1)
+                              ], // Define gradient colors
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors
+                                  .transparent, // Make button background transparent
+                              shadowColor: Colors
+                                  .transparent, // Remove shadow color to avoid conflict
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Submit",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                          ),
+                        ),
                       ),
+
+                      //
                       SizedBox(height: 25),
                       Center(
                           child: Text("or login with",
