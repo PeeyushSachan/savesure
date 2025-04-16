@@ -37,6 +37,7 @@ dependencies:
   auto_size_text: ^3.0.0
   font_awesome_flutter: ^10.8.0
   flutter_local_notifications: ^19.0.0
+  responsive_media: ^1.0.0
 
 dev_dependencies:
   flutter_test:

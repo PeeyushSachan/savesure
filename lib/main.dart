@@ -3,10 +3,13 @@ import 'package:savesure/view/auth/forgot_password_screen.dart';
 import 'package:savesure/view/auth/login_screen.dart';
 import 'package:savesure/view/auth/otp_verification_screen.dart';
 import 'package:savesure/view/auth/register_screen.dart';
-import 'package:savesure/view/auth/reset_password_screen.dart';
+import 'package:savesure/view/auth/login_screen.dart';
 import 'package:savesure/view/auth/success_reset_screen.dart';
+
 import 'package:savesure/view/home/home_screen.dart';
-import 'package:savesure/view/notification/cards_notification.dart'; // आपकी स्क्रीन
+import 'package:savesure/view/notification/cards_notification.dart';
+import 'package:savesure/widgets/test.dart';
+import 'package:savesure/widgets/test2.dart'; // आपकी स्क्रीन
 
 // ✅ Main Function (entry point)
 Future<void> main() async {
@@ -25,7 +28,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SuccessResetScreen(), // आपकी main screen
+      home:LoginScreen(), // आपकी main screen
     );
   }
 }
