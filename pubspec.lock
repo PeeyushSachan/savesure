@@ -247,10 +247,10 @@ packages:
     dependency: "direct main"
     description:
       name: responsive_media
-      sha256: "3f364f2e4f85d89ed46f9c05cc89e43fd3430739912b7c6a592accddbfbe5e40"
+      sha256: "9f3c244e2e371c07facee60a5152c3add6baaa2f426869cd08c20e99e071ec4d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.2"
+    version: "1.1.3"
   sky_engine:
     dependency: transitive
     description: flutter
