@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class SuccessResetScreen extends StatefulWidget {
   const SuccessResetScreen({super.key});
 

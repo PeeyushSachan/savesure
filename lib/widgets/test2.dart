@@ -29,7 +29,8 @@ class _Login2State extends State<Login2> {
     return Scaffold(
       // ✅ Allows layout to adjust when keyboard appears
       resizeToAvoidBottomInset: true,
-      body: LayoutBuilder( // ✅ LayoutBuilder used here
+      body: LayoutBuilder(
+        // ✅ LayoutBuilder used here
         builder: (context, constraints) {
           final screenHeight = constraints.maxHeight;
           final screenWidth = constraints.maxWidth;
@@ -37,7 +38,8 @@ class _Login2State extends State<Login2> {
 
           return Padding(
             padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView( // ✅ Prevents overflow when keyboard opens
+            child: SingleChildScrollView(
+              // ✅ Prevents overflow when keyboard opens
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -49,7 +51,8 @@ class _Login2State extends State<Login2> {
                   Container(
                     child: Text.rich(TextSpan(
                       text: "Login2 To Yours ",
-                      style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
                       children: [
                         TextSpan(
                           text: "mNews\n",

@@ -31,22 +31,18 @@ Future<void> initializeNotifications() async {
   );
 }
 
+Future<void> requestNotificationPermissionIfNeeded() async {
+  final bool? granted = await flutterLocalNotificationsPlugin
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
+      ?.requestNotificationsPermission(); // ✅ THIS is what you need
 
-  Future<void> requestNotificationPermissionIfNeeded() async {
-    final bool? granted = await flutterLocalNotificationsPlugin
-        .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>()
-        ?.requestNotificationsPermission(); // ✅ THIS is what you need
-
-    if (granted != null && granted) {
-      print("🔔 Notification permission granted by user");
-    } else {
-      print("🚫 Notification permission denied by user");
-    }
-
- 
+  if (granted != null && granted) {
+    print("🔔 Notification permission granted by user");
+  } else {
+    print("🚫 Notification permission denied by user");
   }
-
+}
 
 void showLocalNotification() async {
   const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(

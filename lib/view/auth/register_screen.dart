@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:responsive_media/responsive_media.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -15,6 +15,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ResponsiveMedia.init(context);
+
+    final rm = ResponsiveMedia.instance;
     final size = MediaQuery.of(context).size;
     bool isLargeScreen = size.width > 600;
 
@@ -61,16 +64,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Center(
                       child: Text("or Create Account",
                           style: TextStyle(color: Colors.grey))),
-                  SizedBox(height: 40),
-                  Wrap(
-                    spacing: 35,
-                    alignment: WrapAlignment.center,
-                    children: [
-                      "assets/Group.png",
-                      "assets/Facebook.png",
-                      "assets/Apple.png"
-                    ].map((image) => _buildSocialIcon(image)).toList(),
+
+                  rm.gapM(),
+
+                  // Padding(
+                  // padding: EdgeInsets.only(left:0.012.rs),
+                  // child:
+
+                  SizedBox(
+                    height: rm.shortestSide * 0.25,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                            width: rm.shortestSide * 0.28,
+                            height: rm.shortestSide * 0.15,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(
+                              FontAwesomeIcons.github,
+                              size: rm.shortestSide * 0.1,
+                              color: Colors.black,
+                            )),
+                        Container(
+                            width: rm.shortestSide * 0.28,
+                            height: rm.shortestSide * 0.15,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(
+                              Icons.facebook,
+                              size: rm.shortestSide * 0.1,
+                              color: Colors.blue,
+                            )),
+                        Container(
+                            width: rm.shortestSide * 0.28,
+                            height: rm.shortestSide * 0.15,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.grey),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Icon(
+                              Icons.apple,
+                              size: rm.shortestSide * 0.1,
+                            ))
+                      ],
+                    ),
                   ),
+
                   SizedBox(height: 15),
                   _buildFooterText(),
                 ],

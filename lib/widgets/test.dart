@@ -13,27 +13,23 @@ class _LoginState extends State<Login> {
   void initState() {
     // TODO: implement initState
     super.initState();
-      EmailController = TextEditingController();
+    EmailController = TextEditingController();
     PassController = TextEditingController();
   }
-
 
   @override
   void dispose() {
     // TODO: implement dispose
-    
+
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
-  
     final screenHeight = MediaQuery.of(context).size.height;
 
     final screenWidth = MediaQuery.of(context).size.width;
     Orientation orientation = MediaQuery.of(context).orientation;
-
-
-
 
     return Scaffold(
       resizeToAvoidBottomInset: true,

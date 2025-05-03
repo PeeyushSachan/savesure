@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: rm.horizontalPadding,
+          padding: rm.paddingVertical(5),
           child: Column(
             children: [
               rm.gapXL(),
