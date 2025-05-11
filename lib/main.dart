@@ -11,8 +11,8 @@ import 'package:savesure/view/notification/cards_notification.dart';
 // ✅ Main Function (entry point)
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await initializeNotifications(); // Plugin init function call
-  await requestNotificationPermissionIfNeeded(); // ⬅️ ASK FOR PERMISSION HERE
+//  await initializeNotifications(); // Plugin init function call
+//await requestNotificationPermissionIfNeeded(); // ⬅️ ASK FOR PERMISSION HERE
   runApp(Main()); // App run
 }
 

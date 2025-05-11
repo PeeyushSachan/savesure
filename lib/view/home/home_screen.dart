@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:savesure/core/theme/app_colors.dart';
 import 'package:savesure/view/home/tab/coupans_card_tab.dart';
 import 'package:savesure/view/home/tab/myevent_card_tab.dart';
 import 'package:savesure/view/home/tab/warrenty_card_tab.dart';
@@ -33,8 +34,75 @@ class _HomeScreenState extends State<HomeScreen> {
       final rm = ResponsiveMedia.instance;
     return Scaffold(
       extendBody: true,
+
+      drawer: Drawer(
+
+        width: 300,
+      ),
       appBar: AppBar(
-        actions: [Title(color: Colors.black, child: Text("AppBar"))],
+
+      
+
+        // leading:  Padding(
+        //   padding: const EdgeInsets.only(left: 12),
+        //   child: InkWell(
+          
+          
+        //     customBorder: CircleBorder(),
+        //     onTap: (){
+
+
+             
+        //     },
+        //     child: SizedBox(
+        //       width: 35,
+        //       height: 35,
+          
+              
+        //       child: Icon(
+                
+        //         color: Colors.black,
+        //         Icons.menu, size: 30),
+        //     ),
+        //   ),
+        // ),
+
+        
+        actions: [
+  Padding(
+  padding: EdgeInsets.only( right: 12),
+    child: InkWell(
+    
+      onTap: () {},
+    customBorder: CircleBorder(),
+      child: SizedBox(
+    
+        width: 35,
+        height: 35,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Icon(Icons.notifications_outlined, size: 30),
+            Positioned(
+              top: 6,
+              right: 6,
+              child: Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  border: Border.all(color: Colors.white, width: 1),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  ),
+],
+
       ),
       bottomNavigationBar: Material(
         color: Colors.transparent,
@@ -67,9 +135,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             width:0.004.rs, color: Colors.orangeAccent.shade100),
                         right: BorderSide(
                             width:0.004.rs, color: Colors.orangeAccent.shade100)),
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(40),
-                        topRight: Radius.circular(40))),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(0.11.rs),
+                        topRight:  Radius.circular(0.11.rs))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -101,14 +169,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               InkWell(
                 child: Container(
-                  height: 74,
-                  width: 74,
+                  height: 0.2.rs,
+                  width:  0.2.rs,
                   decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.circular(37)),
+                      color: AppColors.primaryOrange,
+                      borderRadius: BorderRadius.circular(0.1.rs)),
                   child: Icon(
                     Icons.add,
-                    size: 50,
+                    size: 0.13.rs,
                     color: Colors.white,
                   ),
                 ),
@@ -132,7 +200,10 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ),
       ),
-      body: allBottomTab[selectedNavigationIndex],
+      body: Padding(
+        padding: rm.paddingHorizontal(1),
+        child: allBottomTab[selectedNavigationIndex],
+      ),
     );
   }
 }
