@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:savesure/core/theme/app_colors.dart';
 import 'package:savesure/view/home/tab/coupans_card_tab.dart';
 import 'package:savesure/view/home/tab/myevent_card_tab.dart';
@@ -35,73 +36,92 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       extendBody: true,
 
-      drawer: Drawer(
-
-        width: 300,
-      ),
+    
       appBar: AppBar(
 
-      
+      flexibleSpace: Column(
 
-        // leading:  Padding(
-        //   padding: const EdgeInsets.only(left: 12),
-        //   child: InkWell(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          
+          Padding(
+            padding:  EdgeInsets.symmetric( horizontal: rm.responsiveValue(6)),
+            child: Row(
+              
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+          
+               InkWell(
+          
+                 customBorder: CircleBorder(),
+                 onTap: (){
+                         
+                         
+                  
+                 },
+                 child: SizedBox(
+                   width: 30,
+                   height: 30,
+               
+                   
+                   child: Icon(
+                     
+                     color: Colors.black,
+                     FontAwesomeIcons.user, size: 30),
+                 ),
+               ),
           
           
-        //     customBorder: CircleBorder(),
-        //     onTap: (){
+             Row(
+               children: [
+                InkWell(
+                 
+                   onTap: () {},
+                 customBorder: CircleBorder(),
+                   child: Stack(
+                     alignment: Alignment.center,
+                     children: [
+                       Icon(  FontAwesomeIcons.magnifyingGlass, size: 30),
+                     ],
+                   ),
+                 ),
 
-
-             
-        //     },
-        //     child: SizedBox(
-        //       width: 35,
-        //       height: 35,
+                 rm.gapS(isHorizontal: true),
+                 InkWell(
+                 
+                   onTap: () {},
+                 customBorder: CircleBorder(),
+                   child: Stack(
+                     alignment: Alignment.center,
+                     children: [
+                       Icon(  FontAwesomeIcons.bell, size: 30),
+                       Positioned(
+                         top: 5,
+                         right: 3,
+                         child: Container(
+                           width: 10,
+                           height: 10,
+                           decoration: BoxDecoration(
+                             color: Colors.red,
+                             border: Border.all(color: Colors.white, width: 1),
+                             shape: BoxShape.circle,
+                           ),
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+               ],
+             ),
+            ],
           
               
-        //       child: Icon(
-                
-        //         color: Colors.black,
-        //         Icons.menu, size: 30),
-        //     ),
-        //   ),
-        // ),
-
-        
-        actions: [
-  Padding(
-  padding: EdgeInsets.only( right: 12),
-    child: InkWell(
-    
-      onTap: () {},
-    customBorder: CircleBorder(),
-      child: SizedBox(
-    
-        width: 35,
-        height: 35,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Icon(Icons.notifications_outlined, size: 30),
-            Positioned(
-              top: 6,
-              right: 6,
-              child: Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  border: Border.all(color: Colors.white, width: 1),
-                  shape: BoxShape.circle,
-                ),
-              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-    ),
-  ),
-],
+
+   
 
       ),
       bottomNavigationBar: Material(
@@ -201,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: Padding(
-        padding: rm.paddingHorizontal(1),
+        padding: rm.paddingHorizontal(5),
         child: allBottomTab[selectedNavigationIndex],
       ),
     );

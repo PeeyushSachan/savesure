@@ -153,7 +153,7 @@ class _SsWarrantyCardState extends State<SsWarrantyCard> {
                       ],
                     ),
                     rm.gap(
-                      size: 15,
+                      size: 10,
                     ),
                     Row(
                       children: [
@@ -162,7 +162,7 @@ class _SsWarrantyCardState extends State<SsWarrantyCard> {
                             "hardware issue, and report for an additional  2 years includes free services and 24/7 customer support",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: rm.h5,
+                                fontSize: rm.h6,
                                 fontWeight: FontWeight.w400),
                           ),
                         ),
