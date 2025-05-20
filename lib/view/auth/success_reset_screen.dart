@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:savesure/core/theme/app_colors.dart';
 
 class SuccessResetScreen extends StatefulWidget {
   const SuccessResetScreen({super.key});
@@ -111,7 +112,7 @@ class _SuccessResetScreenState extends State<SuccessResetScreen> {
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
-            borderSide: BorderSide(color: Colors.deepOrange)),
+            borderSide: BorderSide(color: AppColors.primaryOrange)),
         hintText: hintText,
         prefixIcon: Padding(
           padding: const EdgeInsets.all(12.0),

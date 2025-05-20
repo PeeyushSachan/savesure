@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:savesure/core/theme/app_colors.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -103,6 +102,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         obscuringCharacter: '*',
         obscureText: obscureText,
         decoration: InputDecoration(
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: AppColors.primaryOrange)),
           hintText: hintText,
           prefixIcon: Image.asset(
             iconPath,
@@ -135,7 +137,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
             onPressed: toggleVisibility,
             icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
           ),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
         ),
         keyboardType: TextInputType.visiblePassword,
       ),
@@ -211,7 +215,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               TextSpan(
                   text: " Login Account",
                   style: TextStyle(
-                      color: Color(0xFFFA6C12), fontWeight: FontWeight.bold))
+                      color: AppColors.primaryOrange,
+                      fontWeight: FontWeight.bold))
             ],
           ),
         ),

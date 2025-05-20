@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:responsive_media/responsive_media.dart';
 
 class OtpVerificationScreen extends StatefulWidget {
   const OtpVerificationScreen({super.key});
@@ -9,156 +9,144 @@ class OtpVerificationScreen extends StatefulWidget {
 }
 
 class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
-  Widget _buildOtpTextField(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return SizedBox(
-      width: screenWidth * 0.15,
-      child: TextField(
-        decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.deepOrange),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
-            borderSide: BorderSide(color: Colors.grey.shade300),
-          ),
-        ),
-        onChanged: (value) {
-          if (value.length == 1) {
-            FocusScope.of(context).nextFocus();
-          }
-        },
-        style: Theme.of(context).textTheme.bodyMedium,
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        inputFormatters: [
-          LengthLimitingTextInputFormatter(1),
-          FilteringTextInputFormatter.digitsOnly,
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    ResponsiveMedia.init(context);
+    final rm = ResponsiveMedia.instance;
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(
-          horizontal: screenWidth * 0.05,
-          vertical: screenHeight * 0.08,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Image.asset(
-                    "assets/image 5.png",
-                    width: screenWidth * 0.15,
-                  ),
-                ),
-                SizedBox(width: screenWidth * 0.03),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Verify Your Email OTP",
+      body: Padding(
+        padding: rm.defaultPadding,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              rm.gapL(),
+              rm.gapL(),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Image.asset(
+                      "assets/image 5.png",
+                      width: rm.shortestSide * 0.09,
+                    ),
+                    rm.gapL(),
+                    rm.gapL(),
+                    Text.rich(TextSpan(children: [
+                      TextSpan(
+                        text: "Verify Your Email OTP",
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenWidth * 0.06,
-                        ),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: rm.h1 * 0.7),
                       ),
-                      SizedBox(height: screenHeight * 0.005),
-                      Text(
-                        "Enter the 4-digit OTP sent to your email to verify your account.",
-                        style: TextStyle(fontSize: screenWidth * 0.04),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: screenHeight * 0.04),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:
-                  List.generate(4, (index) => _buildOtpTextField(context)),
-            ),
-            SizedBox(height: screenHeight * 0.02),
-            Text(
-              "00:50",
-              style: TextStyle(
-                color: Colors.deepOrange,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: screenHeight * 0.03),
-            Text("Didn’t receive an email?",
-                style: TextStyle(fontSize: screenWidth * 0.04)),
-            SizedBox(height: screenHeight * 0.03),
-            GestureDetector(
-              onTap: () {},
-              child: Text(
-                "Resend Code",
-                style:
-                    TextStyle(fontSize: screenWidth * 0.05, color: Colors.blue),
-              ),
-            ),
-            SizedBox(height: screenHeight * 0.15),
-            Container(
-              width: double.infinity,
-              height: screenHeight * 0.06,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFFA6C12),
-                    Color(0xFFC64AA1)
-                  ], // Define gradient colors
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+                      TextSpan(
+                          text:
+                              "\nEnter the 4-digit OTP sent to your email \nto verify your account.",
+                          style: TextStyle(
+                              fontSize: rm.h2 * 0.7, color: Colors.grey))
+                    ]))
+                  ],
                 ),
               ),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
-                  shadowColor: Colors.transparent,
+              rm.gapL(),
+              rm.gapS(),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: rm.shortestSide * 0.16,
+                      height: rm.shortestSide * 0.16,
+                      child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)))),
+                    ),
+                    rm.gapL(),
+                    Container(
+                      width: rm.shortestSide * 0.16,
+                      height: rm.shortestSide * 0.16,
+                      child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)))),
+                    ),
+                    rm.gapL(),
+                    Container(
+                      width: rm.shortestSide * 0.16,
+                      height: rm.shortestSide * 0.16,
+                      child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)))),
+                    ),
+                    rm.gapL(),
+                    Container(
+                      width: rm.shortestSide * 0.16,
+                      height: rm.shortestSide * 0.16,
+                      child: TextField(
+                          decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10)))),
+                    )
+                  ],
                 ),
-                onPressed: () {},
+              ),
+              rm.gapL(),
+              Container(
+                child: Text("Don't get any Email?",
+                    style:
+                        TextStyle(fontSize: rm.h2 * 0.7, color: Colors.grey)),
+              ),
+              rm.gapL(),
+              Container(
                 child: Text(
-                  "Verify",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: screenWidth * 0.045,
+                  "Resend Code",
+                ),
+              ),
+              rm.gapL(),
+              rm.gapS(),
+              Container(
+                height: rm.shortestSide * 0.14,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.amber,
+                ),
+                child: Center(
+                  child: Text(
+                    "Submit",
+                    style: TextStyle(
+                        color: Colors.white, fontSize: rm.button * 1.5),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: screenHeight * 0.02),
-            SizedBox(
-              width: double.infinity,
-              height: screenHeight * 0.06,
-              child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+              rm.gapL(),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                height: rm.shortestSide * 0.14,
+                child: Center(
+                  child: Text(
+                    "Back",
+                    style: TextStyle(
+                        color: Colors.black, fontSize: rm.button * 1.5),
                   ),
                 ),
-                onPressed: () {},
-                child: Text(
-                  "Back",
-                  style: TextStyle(fontSize: screenWidth * 0.045),
-                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
