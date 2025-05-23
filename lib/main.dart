@@ -7,6 +7,7 @@ import 'package:savesure/view/auth/register_screen.dart';
 import 'package:savesure/view/home/home_screen.dart';
 
 import 'package:savesure/view/notification/cards_notification.dart';
+import 'package:savesure/view/settings/profile_screen.dart';
 import 'package:savesure/widgets/ss_notificationList.dart';
 
 // ✅ Main Function (entry point)
@@ -25,7 +26,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(debugShowCheckedModeBanner: false,
     
-     home: SsNotificationlist(),
+     home: HomeScreen(),
     
     // home: StyledNotificationPopup()
     );
