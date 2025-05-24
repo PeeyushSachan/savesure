@@ -6,6 +6,7 @@ import 'package:savesure/view/home/tab/myevent_card_tab.dart';
 import 'package:savesure/view/home/tab/warrenty_card_tab.dart';
 import 'package:savesure/view/notification/cards_notification.dart';
 import 'package:responsive_media/responsive_media.dart';
+import 'package:savesure/view/settings/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,120 +43,134 @@ class _HomeScreenState extends State<HomeScreen> {
         preferredSize:
             Size.fromHeight(_showSearchField ? 120 : 70), // Dynamic height
         child: AppBar(
-          flexibleSpace: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: rm.responsiveValue(6)),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          customBorder: CircleBorder(),
-                          onTap: () {},
-                          child: SizedBox(
-                            width: 30,
-                            height: 30,
-                            child: Icon(
-                                color: Colors.black,
-                                FontAwesomeIcons.user,
-                                size: 30),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                setState(() {
-                                  _showSearchField = !_showSearchField;
-                                });
-                              },
-                              customBorder: CircleBorder(),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Icon(FontAwesomeIcons.magnifyingGlass,
-                                      size: 30),
-                                ],
-                              ),
+          flexibleSpace: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: rm.responsiveValue(6)),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            customBorder: CircleBorder(),
+                            onTap: () {
+            
+                             Navigator.push(context, MaterialPageRoute
+                             
+                             
+                             
+                             (builder: (context){
+            
+            
+                              return ProfileScreen();
+                             }
+                             ));
+                            },
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Icon(
+                                  color: Colors.black,
+                                  FontAwesomeIcons.user,
+                                  size: 30),
                             ),
-                            rm.gapS(isHorizontal: true),
-                            InkWell(
-                              onTap: () {
-                  
-
-                                showNoticationList=!showNoticationList;
-
-                                
-                                setState(() {
+                          ),
+                          Row(
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    _showSearchField = !_showSearchField;
+                                  });
+                                },
+                                customBorder: CircleBorder(),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Icon(FontAwesomeIcons.magnifyingGlass,
+                                        size: 30),
+                                  ],
+                                ),
+                              ),
+                              rm.gapS(isHorizontal: true),
+                              InkWell(
+                                onTap: () {
+                    
+            
+                                  showNoticationList=!showNoticationList;
+            
                                   
-                                });
-                              },
-                              customBorder: CircleBorder(),
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Icon(FontAwesomeIcons.bell, size: 30),
-                                  Positioned(
-                                    top: 5,
-                                    right: 3,
-                                    child: Container(
-                                      width: 10,
-                                      height: 10,
-                                      decoration: BoxDecoration(
-                                        color: Colors.red,
-                                        border: Border.all(
-                                            color: Colors.white, width: 1),
-                                        shape: BoxShape.circle,
+                                  setState(() {
+                                    
+                                  });
+                                },
+                                customBorder: CircleBorder(),
+                                child: Stack(
+                                  alignment: Alignment.center,
+                                  children: [
+                                    Icon(FontAwesomeIcons.bell, size: 30),
+                                    Positioned(
+                                      top: 5,
+                                      right: 3,
+                                      child: Container(
+                                        width: 10,
+                                        height: 10,
+                                        decoration: BoxDecoration(
+                                          color: Colors.red,
+                                          border: Border.all(
+                                              color: Colors.white, width: 1),
+                                          shape: BoxShape.circle,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    if (_showSearchField) ...[
-                      SizedBox(height: 10),
-                      TextField(
-                        controller: searchControl,
-                        decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5)),
-                              borderSide:
-                                  BorderSide(color: AppColors.primaryOrange)),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: AppColors.borderOrange, width: 1),
+                            ],
                           ),
-                          suffix: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primaryOrange,
-                                  foregroundColor: Colors.white,
-                                  fixedSize: Size(82, 31),
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10))),
-                              onPressed: () {},
-                              child: Text(
-                                "Search",
-                                style: TextStyle(fontSize: rm.h6),
-                              )),
-                          hintText: "Search...",
-                          border: OutlineInputBorder(),
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12),
-                        ),
+                        ],
                       ),
-                    ]
-                  ],
+                      if (_showSearchField) ...[
+                        SizedBox(height: 10),
+                        TextField(
+                          controller: searchControl,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5)),
+                                borderSide:
+                                    BorderSide(color: AppColors.primaryOrange)),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: AppColors.borderOrange, width: 1),
+                            ),
+                            suffix: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppColors.primaryOrange,
+                                    foregroundColor: Colors.white,
+                                    fixedSize: Size(82, 31),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10))),
+                                onPressed: () {},
+                                child: Text(
+                                  "Search",
+                                  style: TextStyle(fontSize: 10),
+                                )),
+                            hintText: "Search...",
+                            border: OutlineInputBorder(),
+                            contentPadding: EdgeInsets.symmetric(horizontal: 12),
+                          ),
+                        ),
+                      ]
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -302,7 +317,15 @@ Positioned(
                               borderRadius: BorderRadius.circular(8)
                             )
                           ),
-                          onPressed: (){}, child:Icon(Icons.arrow_back_ios_new, size: 15,) ,),
+                          onPressed: (){
+                            showNoticationList=false;
+                            setState(() {
+                              
+                            });
+
+
+                           
+                          }, child:Icon(Icons.arrow_back_ios_new, size: 15,) ,),
                       ),
                   
                      

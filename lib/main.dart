@@ -9,6 +9,7 @@ import 'package:savesure/view/home/home_screen.dart';
 import 'package:savesure/view/notification/cards_notification.dart';
 import 'package:savesure/view/settings/profile_screen.dart';
 import 'package:savesure/widgets/ss_notificationList.dart';
+import 'package:savesure/widgets/test2.dart';
 
 // ✅ Main Function (entry point)
 Future<void> main() async {
@@ -24,9 +25,15 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(debugShowCheckedModeBanner: false,
     
      home: HomeScreen(),
+
+     theme: ThemeData(
+
+      fontFamily: "outfit"
+     ),
     
     // home: StyledNotificationPopup()
     );

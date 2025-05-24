@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -7,12 +8,13 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        ResponsiveMedia.init(context); // insitalization
+
+    final rm = ResponsiveMedia.instance; // Use after init(context)
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(children: [
-        SizedBox(
-          height: 80,
-        ),
+        
         Container(
           width: double.infinity,
           height: 70,
@@ -58,19 +60,21 @@ class ProfileScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(12)
                                   )
                                 ),
-                                onPressed: (){}, child:Icon(Icons.arrow_back_ios_new, size: 25, color: Colors.black,) ,),
+                                onPressed: (){
+
+
+                                  Navigator.pop(context);
+                                }, child:Icon(Icons.arrow_back_ios_new, size: 25, color: Colors.black,) ,),
                             ),
                        ],
                      ),
                
-              Expanded(
-                  child: Center(
-                    child: Text(
-                      "Personal Info",
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    ),
-                  ),
-                )
+              Center(
+                child: Text(
+                  "Personal Info",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              )
               ],
             ),
           ),
@@ -79,23 +83,7 @@ class ProfileScreen extends StatelessWidget {
           height: 20,
         ),
         Stack(children: [
-          /*Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(
-                color: Colors.red,
-                width: 2, 
-              ),
-              image: DecorationImage(
-                image: AssetImage(
-                    'assets/themeAssets/card/image (2).png'), 
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),*/
-
+       
           Container(
             width: 110, // Outer size
             height: 110,
@@ -140,11 +128,23 @@ class ProfileScreen extends StatelessWidget {
                 height: 15,
               ),
               TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.mail),
+               decoration: InputDecoration(
+                    hintText: "Enter Your Email",
+                    hintStyle: TextStyle(fontSize: rm.caption),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: AppColors.primaryOrange)),
+                   contentPadding:
+                       EdgeInsets.symmetric(vertical: rm.shortestSide * 0.03),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: AppColors.primaryOrange,
+                      size: rm.shortestSide*.07
+                    ),
                     border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15))),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
               ),
               SizedBox(
                 height: 15,
