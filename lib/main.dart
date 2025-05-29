@@ -3,12 +3,13 @@ import 'package:savesure/test.dart';
 import 'package:savesure/view/auth/forgot_password_screen.dart';
 
 import 'package:savesure/view/auth/login_screen.dart';
+import 'package:savesure/view/auth/otp_verification_screen.dart';
 import 'package:savesure/view/auth/register_screen.dart';
 import 'package:savesure/view/home/home_screen.dart';
 
 import 'package:savesure/view/notification/cards_notification.dart';
 import 'package:savesure/view/settings/profile_screen.dart';
-import 'package:savesure/widgets/ss_notificationList.dart';
+
 import 'package:savesure/widgets/test2.dart';
 
 // ✅ Main Function (entry point)
@@ -28,7 +29,7 @@ class Main extends StatelessWidget {
 
     return MaterialApp(debugShowCheckedModeBanner: false,
     
-     home: HomeScreen(),
+     home: RegisterScreen(),
 
      theme: ThemeData(
 

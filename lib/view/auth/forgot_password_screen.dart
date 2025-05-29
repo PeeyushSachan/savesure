@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
+import 'package:savesure/widgets/ss_textField.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key? key}) : super(key: key);
@@ -61,30 +62,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               rm.gapL(),
               SizedBox(
                 height: rm.shortestSide * 0.18,
-                child: TextField(
-                  style: TextStyle(
-                      fontSize: rm.h1, color: AppColors.primaryOrange),
-                  decoration: InputDecoration(
-                    hintText: "Enter Your Email",
-                    hintStyle: TextStyle(fontSize: rm.caption),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: AppColors.primaryOrange)),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: rm.shortestSide * 0.06),
-                    prefixIcon: Padding(
-                      padding: rm.paddingAll(5),
-                      child: Icon(
-                        Icons.email,
-                        color: AppColors.primaryOrange,
-                        size: rm.shortestSide * 0.08,
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                ),
+                child: SsTextField(rm: rm, hintText: "Enter Your Email", icon: Icons.email)
               ),
               Container(
                 child: Align(

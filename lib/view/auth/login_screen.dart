@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:savesure/widgets/ss_textField.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: rm.paddingVertical(5),
+          padding: rm.paddingHorizontal(2),
           child: Column(
             children: [
               rm.gapXL(),
@@ -51,26 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               rm.gapL(),
               SizedBox(
                 height: rm.shortestSide * 0.18,
-                child: TextField(
-                  style: TextStyle(color: AppColors.primaryOrange),
-                  decoration: InputDecoration(
-                    hintText: "Enter Your Email",
-                    hintStyle: TextStyle(fontSize: rm.caption),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: AppColors.primaryOrange)),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: rm.shortestSide * 0.06),
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: AppColors.primaryOrange,
-                      size: rm.caption,
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                  ),
-                ),
+                child: SsTextField(rm: rm, hintText: "Enter Your Email", icon: Icons.email),
               ),
               rm.gapM(),
               SizedBox(
