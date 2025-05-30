@@ -59,24 +59,31 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
 
               TextField(
-                style: TextStyle(color: AppColors.primaryOrange),
+                style: TextStyle(
+                  
+                  
+                  fontSize: rm.h1,
+                  color: AppColors.primaryOrange),
                 obscuringCharacter: "*",
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
                   hintText: "Enter Your Password",
-                  hintStyle: TextStyle(fontSize: rm.caption),
+                  hintStyle: TextStyle(fontSize: rm.h1),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(color: AppColors.primaryOrange)),
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.06),
+                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  prefixIcon: Icon(
-                    FontAwesomeIcons.lock,
-                    color: AppColors.primaryOrange,
-                    size: rm.caption,
+                  prefixIcon: Padding(
+                    padding: rm.paddingHorizontal(3),
+                    child: Icon(
+                      FontAwesomeIcons.lock,
+                      color: AppColors.primaryOrange,
+                      size: rm.shortestSide * 0.08,
+                    ),
                   ),
                   suffixIcon: IconButton(
                       onPressed: () {
@@ -100,6 +107,58 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
              rm.gapM(),
 
+             
+          
+
+
+              TextField(
+                style: TextStyle(
+                  
+                  
+                  fontSize: rm.h1,
+                  color: AppColors.primaryOrange),
+                obscuringCharacter: "*",
+                obscureText: passwordVisible,
+                decoration: InputDecoration(
+                  hintText: "Enter Your Confirm Password",
+                  hintStyle: TextStyle(fontSize: rm.h1),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: AppColors.primaryOrange)),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Padding(
+                    padding: rm.paddingHorizontal(3),
+                    child: Icon(
+                      FontAwesomeIcons.lock,
+                      color: AppColors.primaryOrange,
+                      size: rm.shortestSide * 0.08,
+                    ),
+                  ),
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                        });
+                      },
+                      icon: Icon(
+                          size: rm.caption,
+                          passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
+                    ),
+                  ),
+                ),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+              ),
+    rm.gapM(),
             SsTextField(rm: rm, hintText: "Profession", icon: Icons.apartment),
 
               rm.gapM(),

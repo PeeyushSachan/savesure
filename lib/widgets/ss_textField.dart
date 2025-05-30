@@ -40,7 +40,7 @@ SsTextField({ required this.rm ,  this.contentPadding , required this.hintText, 
                         borderRadius: BorderRadius.circular(15),
                         borderSide: BorderSide(color: AppColors.primaryOrange)),
                     contentPadding:
-                     contentPadding ?? EdgeInsets.symmetric(vertical: rm.shortestSide * 0.06),
+                     contentPadding ?? EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
                     prefixIcon: Padding(
 
                       padding:  rm.paddingHorizontal(3),
