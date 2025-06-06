@@ -61,9 +61,9 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ),
               rm.gapL(),
               SizedBox(
-                height: rm.shortestSide * 0.18,
-                child: SsTextField(rm: rm, hintText: "Enter Your Email", icon: Icons.email)
-              ),
+                  height: rm.shortestSide * 0.18,
+                  child: SsTextField(
+                      rm: rm, hintText: "Enter Your Email", icon: Icons.email)),
               Container(
                 child: Align(
                   alignment: Alignment.centerRight,

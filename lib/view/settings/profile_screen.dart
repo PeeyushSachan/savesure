@@ -8,13 +8,12 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        ResponsiveMedia.init(context); // insitalization
+    ResponsiveMedia.init(context); // insitalization
 
     final rm = ResponsiveMedia.instance; // Use after init(context)
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(children: [
-        
         Container(
           width: double.infinity,
           height: 70,
@@ -34,47 +33,36 @@ class ProfileScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Stack(
               children: [
-             
-             
-            
-                     Column(
-
-                      mainAxisAlignment: MainAxisAlignment.center,
-                       children: [
-                         SizedBox(
-                                             
-                              width: 50,
-                              height: 50,
-                              child: ElevatedButton(
-                                              
-                                              
-                                            
-                                
-                                style: ElevatedButton.styleFrom(
-                                      
-                                      padding: EdgeInsets.zero,
-                                      elevation: 0.2,
-                                  shape: RoundedRectangleBorder(
-                                              
-                                         
-                                    borderRadius: BorderRadius.circular(12)
-                                  )
-                                ),
-                                onPressed: (){
-
-
-                                  Navigator.pop(context);
-                                }, child:Icon(Icons.arrow_back_ios_new, size: 25, color: Colors.black,) ,),
-                            ),
-                       ],
-                     ),
-               
-              Center(
-                child: Text(
-                  "Personal Info",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.zero,
+                            elevation: 0.2,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12))),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios_new,
+                          size: 25,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              )
+                Center(
+                  child: Text(
+                    "Personal Info",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ),
+                )
               ],
             ),
           ),
@@ -83,7 +71,6 @@ class ProfileScreen extends StatelessWidget {
           height: 20,
         ),
         Stack(children: [
-       
           Container(
             width: 110, // Outer size
             height: 110,
@@ -99,8 +86,6 @@ class ProfileScreen extends StatelessWidget {
               child: ClipOval(
                 child: Image.asset(
                   'assets/defaultuser.png',
-          
-                  
                   fit: BoxFit.cover,
                   width: 100,
                   height: 100,
@@ -118,8 +103,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
               TextField(
                 decoration: InputDecoration(
-                    prefixIcon:
-                        Icon(Icons.contact_mail),
+                    prefixIcon: Icon(Icons.contact_mail),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(15))),
@@ -128,31 +112,28 @@ class ProfileScreen extends StatelessWidget {
                 height: 15,
               ),
               TextField(
-               decoration: InputDecoration(
-                    hintText: "Enter Your Email",
-                    hintStyle: TextStyle(fontSize: rm.caption),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: AppColors.primaryOrange)),
-                   contentPadding:
-                       EdgeInsets.symmetric(vertical: rm.shortestSide * 0.03),
-                    prefixIcon: Icon(
-                      Icons.email,
-                      color: AppColors.primaryOrange,
-                      size: rm.shortestSide*.07
-                    ),
-                    border: OutlineInputBorder(
+                decoration: InputDecoration(
+                  hintText: "Enter Your Email",
+                  hintStyle: TextStyle(fontSize: rm.caption),
+                  focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                    ),
+                      borderSide: BorderSide(color: AppColors.primaryOrange)),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.03),
+                  prefixIcon: Icon(Icons.email,
+                      color: AppColors.primaryOrange,
+                      size: rm.shortestSide * .07),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
                   ),
+                ),
               ),
               SizedBox(
                 height: 15,
               ),
               TextField(
                 decoration: InputDecoration(
-                    prefixIcon:
-                        Icon(Icons.call),
+                    prefixIcon: Icon(Icons.call),
                     border: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                         borderRadius: BorderRadius.circular(15))),
@@ -166,8 +147,8 @@ class ProfileScreen extends StatelessWidget {
                     suffixIcon: Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Icon(
-Icons.arrow_drop_down,
-                       size: 20,
+                        Icons.arrow_drop_down,
+                        size: 20,
                       ),
                     ),
                     border: OutlineInputBorder(
@@ -204,9 +185,12 @@ Icons.arrow_drop_down,
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         ),
                         SizedBox(
-                          width:10,
+                          width: 10,
                         ),
-                        Icon(FontAwesomeIcons.penToSquare , color: Colors.white,)
+                        Icon(
+                          FontAwesomeIcons.penToSquare,
+                          color: Colors.white,
+                        )
                       ],
                     ),
                   ),
@@ -238,8 +222,10 @@ Icons.arrow_drop_down,
                       SizedBox(
                         width: 10,
                       ),
-                     
-                     Icon(Icons.logout, color: AppColors.primaryOrange,)
+                      Icon(
+                        Icons.logout,
+                        color: AppColors.primaryOrange,
+                      )
                     ],
                   ),
                 ),

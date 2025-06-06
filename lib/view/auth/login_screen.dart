@@ -52,51 +52,56 @@ class _LoginScreenState extends State<LoginScreen> {
               rm.gapL(),
               SizedBox(
                 height: rm.shortestSide * 0.18,
-                child: SsTextField(rm: rm, hintText: "Enter Your Email", icon: Icons.email),
+                child: SsTextField(
+                    rm: rm, hintText: "Enter Your Email", icon: Icons.email),
               ),
               rm.gapM(),
               SizedBox(
                 height: rm.shortestSide * 0.18,
-                child: TextField(
-                  style: TextStyle(color: AppColors.primaryOrange),
-                  obscuringCharacter: "*",
-                  obscureText: passwordVisible,
-                  decoration: InputDecoration(
-                    hintText: "Enter Your Password",
-                    hintStyle: TextStyle(fontSize: rm.caption),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: AppColors.primaryOrange)),
-                    contentPadding:
-                        EdgeInsets.symmetric(vertical: rm.shortestSide * 0.06),
-                    enabledBorder: OutlineInputBorder(
+                child:   TextField(
+                style:
+                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
+                obscuringCharacter: "*",
+                obscureText: passwordVisible,
+                decoration: InputDecoration(
+                  hintText: "Enter Your Password",
+                  hintStyle: TextStyle(fontSize: rm.h1),
+                  focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                    ),
-                    prefixIcon: Icon(
+                      borderSide: BorderSide(color: AppColors.primaryOrange)),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Padding(
+                    padding: rm.paddingHorizontal(3),
+                    child: Icon(
                       FontAwesomeIcons.lock,
                       color: AppColors.primaryOrange,
-                      size: rm.caption,
-                    ),
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            passwordVisible = !passwordVisible;
-                          });
-                        },
-                        icon: Icon(
-                            size: rm.caption,
-                            passwordVisible
-                                ? Icons.visibility_off_outlined
-                                : Icons.visibility_outlined)),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(
-                        15,
-                      ),
+                      size: rm.shortestSide * 0.08,
                     ),
                   ),
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.done,
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                        });
+                      },
+                      icon: Icon(
+                          size: rm.caption,
+                          passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
+                    ),
+                  ),
                 ),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+              ),
               ),
               rm.gapS(),
               Align(
@@ -113,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               rm.gapL(),
               Container(
-                height: rm.shortestSide * 0.18,
+                height: rm.shortestSide * 0.16,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),

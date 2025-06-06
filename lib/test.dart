@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class StyledNotificationPopup extends StatefulWidget {
   @override
-  State<StyledNotificationPopup> createState() => _StyledNotificationPopupState();
+  State<StyledNotificationPopup> createState() =>
+      _StyledNotificationPopupState();
 }
 
 class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
@@ -20,7 +21,8 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
   }
 
   void _showPopup() {
-    final RenderBox renderBox = _bellKey.currentContext!.findRenderObject() as RenderBox;
+    final RenderBox renderBox =
+        _bellKey.currentContext!.findRenderObject() as RenderBox;
     final Offset offset = renderBox.localToGlobal(Offset.zero);
 
     _overlayEntry = OverlayEntry(
@@ -51,10 +53,12 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
                   children: [
                     // Header
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 16),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 16),
                       decoration: BoxDecoration(
                         color: Color.fromARGB(117, 246, 215, 194),
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                        borderRadius:
+                            BorderRadius.vertical(top: Radius.circular(20)),
                       ),
                       child: Row(
                         children: [
@@ -66,14 +70,17 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
                               backgroundColor: Colors.white,
                               elevation: 0,
                             ),
-                            child: Icon(Icons.arrow_back_ios_new, size: 16, color: Colors.black),
+                            child: Icon(Icons.arrow_back_ios_new,
+                                size: 16, color: Colors.black),
                           ),
                           Spacer(),
-                          Icon(FontAwesomeIcons.bell, color: Color(0xFFE76F51), size: 18),
+                          Icon(FontAwesomeIcons.bell,
+                              color: Color(0xFFE76F51), size: 18),
                           SizedBox(width: 8),
                           Text(
                             "Notification",
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Spacer(flex: 2),
                         ],
@@ -85,15 +92,15 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
                       alignment: Alignment.center,
                       child: Text(
                         "14 New Notifications",
-                        style: TextStyle(color: Color(0xFFE76F51), fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            color: Color(0xFFE76F51),
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                     Expanded(
                       child: ListView(
                         padding: EdgeInsets.zero,
                         children: [
-
-
                           _buildNotificationItem(
                             title: "Upcoming Event: Tech Expo 2025!",
                             subtitle:
@@ -101,8 +108,6 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
                             type: "Event",
                             highlight: false,
                           ),
-
-                          
                           _buildNotificationItem(
                             title: "New Warranty Activated!",
                             subtitle:
@@ -160,9 +165,13 @@ class _StyledNotificationPopupState extends State<StyledNotificationPopup> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15, color: Colors.black)),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: Colors.black)),
                 SizedBox(height: 4),
-                Text(subtitle, style: TextStyle(fontSize: 13, color: Colors.black87)),
+                Text(subtitle,
+                    style: TextStyle(fontSize: 13, color: Colors.black87)),
               ],
             ),
           ),

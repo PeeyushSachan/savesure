@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:responsive_media/responsive_media.dart';
+import 'package:savesure/core/theme/app_colors.dart';
 
-class NewPasswordScreen extends StatefulWidget {
-  const NewPasswordScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
-  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _NewPasswordScreenState extends State<NewPasswordScreen> {
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   bool passwordVisible = true;
   bool confirmPasswordVisible = true;
 
@@ -19,21 +22,19 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+   ResponsiveMedia.init(context); // insitalization
+
+    final rm = ResponsiveMedia.instance; // Use after init(context)
     return Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.05,
-              vertical: screenHeight * 0.08,
-            ),
+           
             child: Column(
               children: [
                 Row(children: [
                   Image.asset(
                     "assets/image.png",
-                    width: screenWidth * 0.15,
+                    width: rm.screenWidth * 0.15,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,84 +43,130 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                         "Create A New Password",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: screenWidth * 0.06,
+                          fontSize: rm.screenWidth * 0.06,
                         ),
                       ),
                       Text(
                           "Your new password must be different \nfrom the previous one.",
-                          style: TextStyle(fontSize: screenWidth * 0.04)),
+                          style: TextStyle(fontSize: rm.screenWidth * 0.04)),
                     ],
                   )
                 ]),
-                SizedBox(height: screenHeight * 0.04),
-                TextField(
-                  obscuringCharacter: "*",
-                  obscureText: passwordVisible,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15),
-                        borderSide: BorderSide(color: Colors.deepOrange)),
-                    prefixIcon: Image.asset("assets/Vector.png"),
-                    suffixIcon: IconButton(
+                SizedBox(height: rm.screenHeight * 0.04),
+               
+                      TextField(
+                style:
+                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
+                obscuringCharacter: "*",
+                obscureText: passwordVisible,
+                decoration: InputDecoration(
+                  hintText: "Enter Your Password",
+                  hintStyle: TextStyle(fontSize: rm.h1),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: AppColors.primaryOrange)),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: rm.screenWidth * 0.05),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Padding(
+                    padding: rm.paddingHorizontal(3),
+                    child: Icon(
+                      FontAwesomeIcons.lock,
+                      color: AppColors.primaryOrange,
+                      size: rm.screenWidth * 0.08,
+                    ),
+                  ),
+                  suffixIcon: IconButton(
                       onPressed: () {
                         setState(() {
                           passwordVisible = !passwordVisible;
                         });
                       },
-                      icon: Icon(passwordVisible
-                          ? Icons.visibility_off_outlined
-                          : Icons.visibility_outlined),
+                      icon: Icon(
+                          size: rm.caption,
+                          passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
                     ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)),
                   ),
-                  keyboardType: TextInputType.visiblePassword,
-                  textInputAction: TextInputAction.done,
                 ),
-                SizedBox(height: screenHeight * 0.03),
-                _buildConfirmPasswordField("Confirm Password",
-                    "assets/Vector.png", confirmPasswordVisible, () {
-                  setState(
-                      () => confirmPasswordVisible = !confirmPasswordVisible);
-                }),
-                SizedBox(height: screenHeight * 0.04),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xFFFA6C12),
-                          Color(0xFFC64AA1)
-                        ], // Define gradient colors
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+              ),
+              rm.gapM(),
+              TextField(
+                style:
+                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
+                obscuringCharacter: "*",
+                obscureText: passwordVisible,
+                decoration: InputDecoration(
+                  hintText: "Enter Your Confirm Password",
+                  hintStyle: TextStyle(fontSize: rm.h1),
+                  focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
+                      borderSide: BorderSide(color: AppColors.primaryOrange)),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: rm.screenWidth * 0.05),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  prefixIcon: Padding(
+                    padding: rm.paddingHorizontal(3),
+                    child: Icon(
+                      FontAwesomeIcons.lock,
+                      color: AppColors.primaryOrange,
+                      size: rm.screenWidth * 0.08,
                     ),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors
-                            .transparent, // Make button background transparent
-                        shadowColor: Colors
-                            .transparent, // Remove shadow color to avoid conflict
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: Text(
-                        "Confirm new Password",
-                        style: TextStyle(color: Colors.white, fontSize: 15),
-                      ),
+                  ),
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          passwordVisible = !passwordVisible;
+                        });
+                      },
+                      icon: Icon(
+                          size: rm.caption,
+                          passwordVisible
+                              ? Icons.visibility_off_outlined
+                              : Icons.visibility_outlined)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                      15,
                     ),
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.02),
+                keyboardType: TextInputType.visiblePassword,
+                textInputAction: TextInputAction.done,
+              ),
+
+
+
+              rm.gapXL(),
+                Container(
+                height: rm.shortestSide * 0.16,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.amber,
+                ),
+                child: Center(
+                  child: Text(
+                    "Save",
+                    style: TextStyle(
+                        color: Colors.white, fontSize: rm.buttonText * 1.5),
+                  ),
+                ),
+              ),
+                SizedBox(height: rm.screenHeight * 0.02),
                 SizedBox(
                   width: double.infinity,
-                  height: screenHeight * 0.06,
+                  height:  rm.shortestSide * 0.16,
                   child: OutlinedButton(
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
@@ -129,7 +176,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     onPressed: () {},
                     child: Text(
                       "Back",
-                      style: TextStyle(fontSize: screenWidth * 0.045),
+                      style: TextStyle(fontSize: rm.screenWidth * 0.045),
                     ),
                   ),
                 ),
@@ -137,27 +184,5 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
             )));
   }
 
-  Widget _buildConfirmPasswordField(String hintText, String iconPath,
-      bool obscureText, VoidCallback toggleVisibility) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextField(
-        obscuringCharacter: '*',
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          hintText: hintText,
-          prefixIcon: Image.asset(
-            iconPath,
-            color: Colors.grey,
-          ),
-          suffixIcon: IconButton(
-            onPressed: toggleVisibility,
-            icon: Icon(obscureText ? Icons.visibility_off : Icons.visibility),
-          ),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-        ),
-        keyboardType: TextInputType.visiblePassword,
-      ),
-    );
-  }
+  
 }

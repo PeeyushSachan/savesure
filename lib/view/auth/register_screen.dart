@@ -43,27 +43,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       color: Colors.black),
                   children: [
                     TextSpan(
-                      text: "Sign up now to access your account and get started!",
+                      text:
+                          "Sign up now to access your account and get started!",
                       style: TextStyle(fontSize: rm.h2, color: Colors.grey),
                     )
                   ],
                 )),
               ),
               rm.gapL(),
-             SsTextField(rm: rm, hintText: "Enter Your Name", icon: Icons.badge),
-               rm.gapM(),
-              SsTextField(rm: rm, hintText: "Enter Your Email", icon: Icons.email),
-             
-             
+              SsTextField(
+                  rm: rm, hintText: "Enter Your Name", icon: Icons.badge),
               rm.gapM(),
-
-
+              SsTextField(
+                  rm: rm, hintText: "Enter Your Email", icon: Icons.email),
+              rm.gapM(),
               TextField(
-                style: TextStyle(
-                  
-                  
-                  fontSize: rm.h1,
-                  color: AppColors.primaryOrange),
+                style:
+                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
                 obscuringCharacter: "*",
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
@@ -105,18 +101,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 keyboardType: TextInputType.visiblePassword,
                 textInputAction: TextInputAction.done,
               ),
-             rm.gapM(),
-
-             
-          
-
-
+              rm.gapM(),
               TextField(
-                style: TextStyle(
-                  
-                  
-                  fontSize: rm.h1,
-                  color: AppColors.primaryOrange),
+                style:
+                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
                 obscuringCharacter: "*",
                 obscureText: passwordVisible,
                 decoration: InputDecoration(
@@ -158,13 +146,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 keyboardType: TextInputType.visiblePassword,
                 textInputAction: TextInputAction.done,
               ),
-    rm.gapM(),
-            SsTextField(rm: rm, hintText: "Profession", icon: Icons.apartment),
-
               rm.gapM(),
-
-            SsTextField(rm: rm, hintText: "Gender", icon: Icons.people),
-            
+              SsTextField(
+                  rm: rm, hintText: "Profession", icon: Icons.apartment),
+              rm.gapM(),
+              SsTextField(rm: rm, hintText: "Gender", icon: Icons.people),
               rm.gapL(),
               Container(
                 height: rm.shortestSide * 0.18,
