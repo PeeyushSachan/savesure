@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
+import 'package:savesure/widgets/ss_textField.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -101,66 +102,32 @@ class ProfileScreen extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.contact_mail),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15))),
-              ),
+              SsTextField(
+                    rm: rm, hintText: "Peeyush Sachan", icon: Icons.badge),
               SizedBox(
                 height: 15,
               ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: "Enter Your Email",
-                  hintStyle: TextStyle(fontSize: rm.caption),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: AppColors.primaryOrange)),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.03),
-                  prefixIcon: Icon(Icons.email,
-                      color: AppColors.primaryOrange,
-                      size: rm.shortestSide * .07),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-              ),
+              SsTextField(
+                    rm: rm, hintText: "Sachana766@gmail.com", icon: Icons.email),
               SizedBox(
                 height: 15,
               ),
-              TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.call),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15))),
-              ),
+           SsTextField(
+                    rm: rm, hintText: "6387302231", icon: Icons.phone),
               SizedBox(
                 height: 15,
               ),
-              TextField(
-                decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.groups),
-                    suffixIcon: Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Icon(
-                        Icons.arrow_drop_down,
-                        size: 20,
-                      ),
-                    ),
-                    border: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15))),
-              ),
+           
+               SsTextField(
+                    rm: rm, hintText: "Male", icon: Icons.male
+),
               SizedBox(
                 height: 15,
               ),
+
               SizedBox(
                 width: double.infinity,
-                height: 50,
+                height:rm.shortestSide*0.16,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: AppColors.buttonGradient,
@@ -201,7 +168,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                height: 50,
+                height: rm.shortestSide*0.16,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.deepOrange),

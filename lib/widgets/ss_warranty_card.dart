@@ -3,14 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:responsive_media/responsive_media.dart';
 
 class SsWarrantyCard extends StatefulWidget {
-  const SsWarrantyCard({Key? key}) : super(key: key);
 
+
+
+
+
+//SsWarrantyCard({});
   @override
   State<SsWarrantyCard> createState() => _SsWarrantyCardState();
 }
 
 class _SsWarrantyCardState extends State<SsWarrantyCard> {
   bool isChecked = false;
+
+
+
+
   @override
   Widget build(BuildContext context) {
     ResponsiveMedia.init(context);

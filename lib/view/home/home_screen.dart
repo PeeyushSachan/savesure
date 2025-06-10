@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         onTap: () {
-                          showLocalNotification();
+                    //      showLocalNotification();
                         },
                       )
                     ],
@@ -279,25 +279,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: rm.paddingHorizontal(3),
                       child: Row(
                         children: [
-                          SizedBox(
-                            width: 40,
-                            height: 40,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                  elevation: 0.2,
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8))),
-                              onPressed: () {
-                                showNoticationList = false;
-                                setState(() {});
-                              },
-                              child: Icon(
-                                Icons.arrow_back_ios_new,
-                                size: 15,
-                              ),
-                            ),
-                          ),
+                       
                           Expanded(
                             child: Center(
                               child: Row(
@@ -318,7 +300,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                             ),
-                          )
+                          ),
+
+                             SizedBox(
+                            width: 40,
+                            height: 40,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  elevation: 0.2,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8))),
+                              onPressed: () {
+                                showNoticationList = false;
+                                setState(() {});
+                              },
+                              child: Icon(
+                                Icons.close,
+                                size: 20,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
