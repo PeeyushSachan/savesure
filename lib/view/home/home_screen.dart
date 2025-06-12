@@ -239,7 +239,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         onTap: () {
-                    //      showLocalNotification();
+                          //      showLocalNotification();
                         },
                       )
                     ],
@@ -279,7 +279,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: rm.paddingHorizontal(3),
                       child: Row(
                         children: [
-                       
                           Expanded(
                             child: Center(
                               child: Row(
@@ -301,8 +300,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ),
-
-                             SizedBox(
+                          SizedBox(
                             width: 40,
                             height: 40,
                             child: ElevatedButton(

@@ -58,50 +58,50 @@ class _LoginScreenState extends State<LoginScreen> {
               rm.gapM(),
               SizedBox(
                 height: rm.shortestSide * 0.18,
-                child:   TextField(
-                style:
-                    TextStyle(fontSize: rm.h1, color: AppColors.primaryOrange),
-                obscuringCharacter: "*",
-                obscureText: passwordVisible,
-                decoration: InputDecoration(
-                  hintText: "Enter Your Password",
-                  hintStyle: TextStyle(fontSize: rm.h1),
-                  focusedBorder: OutlineInputBorder(
+                child: TextField(
+                  style: TextStyle(
+                      fontSize: rm.h1, color: AppColors.primaryOrange),
+                  obscuringCharacter: "*",
+                  obscureText: passwordVisible,
+                  decoration: InputDecoration(
+                    hintText: "Enter Your Password",
+                    hintStyle: TextStyle(fontSize: rm.h1),
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: AppColors.primaryOrange)),
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
+                    enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
-                      borderSide: BorderSide(color: AppColors.primaryOrange)),
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  prefixIcon: Padding(
-                    padding: rm.paddingHorizontal(3),
-                    child: Icon(
-                      FontAwesomeIcons.lock,
-                      color: AppColors.primaryOrange,
-                      size: rm.shortestSide * 0.08,
+                    ),
+                    prefixIcon: Padding(
+                      padding: rm.paddingHorizontal(3),
+                      child: Icon(
+                        FontAwesomeIcons.lock,
+                        color: AppColors.primaryOrange,
+                        size: rm.shortestSide * 0.08,
+                      ),
+                    ),
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            passwordVisible = !passwordVisible;
+                          });
+                        },
+                        icon: Icon(
+                            size: rm.caption,
+                            passwordVisible
+                                ? Icons.visibility_off_outlined
+                                : Icons.visibility_outlined)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(
+                        15,
+                      ),
                     ),
                   ),
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          passwordVisible = !passwordVisible;
-                        });
-                      },
-                      icon: Icon(
-                          size: rm.caption,
-                          passwordVisible
-                              ? Icons.visibility_off_outlined
-                              : Icons.visibility_outlined)),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                      15,
-                    ),
-                  ),
+                  keyboardType: TextInputType.visiblePassword,
+                  textInputAction: TextInputAction.done,
                 ),
-                keyboardType: TextInputType.visiblePassword,
-                textInputAction: TextInputAction.done,
-              ),
               ),
               rm.gapS(),
               Align(

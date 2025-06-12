@@ -103,31 +103,26 @@ class ProfileScreen extends StatelessWidget {
           child: Column(
             children: [
               SsTextField(
-                    rm: rm, hintText: "Peeyush Sachan", icon: Icons.badge),
+                  rm: rm, hintText: "Peeyush Sachan", icon: Icons.badge),
               SizedBox(
                 height: 15,
               ),
               SsTextField(
-                    rm: rm, hintText: "Sachana766@gmail.com", icon: Icons.email),
+                  rm: rm, hintText: "Sachana766@gmail.com", icon: Icons.email),
               SizedBox(
                 height: 15,
               ),
-           SsTextField(
-                    rm: rm, hintText: "6387302231", icon: Icons.phone),
+              SsTextField(rm: rm, hintText: "6387302231", icon: Icons.phone),
               SizedBox(
                 height: 15,
               ),
-           
-               SsTextField(
-                    rm: rm, hintText: "Male", icon: Icons.male
-),
+              SsTextField(rm: rm, hintText: "Male", icon: Icons.male),
               SizedBox(
                 height: 15,
               ),
-
               SizedBox(
                 width: double.infinity,
-                height:rm.shortestSide*0.16,
+                height: rm.shortestSide * 0.16,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: AppColors.buttonGradient,
@@ -168,7 +163,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(
                 width: double.infinity,
-                height: rm.shortestSide*0.16,
+                height: rm.shortestSide * 0.16,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.deepOrange),

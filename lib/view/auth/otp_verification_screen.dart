@@ -110,26 +110,26 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
               ),
             ),
             rm.gapL(),
-          Container(
-                height: rm.shortestSide * 0.16,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.amber,
-                ),
-                child: Center(
-                  child: Text(
-                    "Verify",
-                    style: TextStyle(
-                        color: Colors.white, fontSize: rm.buttonText * 1.5),
-                  ),
+            Container(
+              height: rm.shortestSide * 0.16,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.amber,
+              ),
+              child: Center(
+                child: Text(
+                  "Verify",
+                  style: TextStyle(
+                      color: Colors.white, fontSize: rm.buttonText * 1.5),
                 ),
               ),
+            ),
             SizedBox(height: rm.screenHeight * 0.02),
             SizedBox(
               width: double.infinity,
-              height:rm.shortestSide * 0.16,
+              height: rm.shortestSide * 0.16,
               child: OutlinedButton(
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(

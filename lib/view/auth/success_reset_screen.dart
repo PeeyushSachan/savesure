@@ -11,8 +11,7 @@ class SuccessResetScreen extends StatefulWidget {
 class _SuccessResetScreenState extends State<SuccessResetScreen> {
   @override
   Widget build(BuildContext context) {
-
-      ResponsiveMedia.init(context); // insitalization
+    ResponsiveMedia.init(context); // insitalization
 
     final rm = ResponsiveMedia.instance; // Use after init(context)
 
@@ -40,8 +39,9 @@ class _SuccessResetScreenState extends State<SuccessResetScreen> {
                 "Please re-login with your new password.",
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
-     rm.gapXL(),
-              _buildGradientButton(rm.shortestSide, rm.screenHeight, "Home", () {})
+              rm.gapXL(),
+              _buildGradientButton(
+                  rm.shortestSide, rm.screenHeight, "Home", () {})
             ],
           ),
         ));

@@ -3,11 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:responsive_media/responsive_media.dart';
 
 class SsWarrantyCard extends StatefulWidget {
-
-
-
-
-
 //SsWarrantyCard({});
   @override
   State<SsWarrantyCard> createState() => _SsWarrantyCardState();
@@ -15,9 +10,6 @@ class SsWarrantyCard extends StatefulWidget {
 
 class _SsWarrantyCardState extends State<SsWarrantyCard> {
   bool isChecked = false;
-
-
-
 
   @override
   Widget build(BuildContext context) {
