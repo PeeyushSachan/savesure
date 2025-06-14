@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:savesure/core/theme/app_colors.dart';
+import 'package:savesure/view/home/tab/cardAction/add_new_card.dart';
 import 'package:savesure/view/home/tab/coupans_card_tab.dart';
 import 'package:savesure/view/home/tab/myevent_card_tab.dart';
 import 'package:savesure/view/home/tab/warrenty_card_tab.dart';
@@ -226,11 +227,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       InkWell(
+
+                    
                         child: Container(
                           height: 0.2.rs,
                           width: 0.2.rs,
                           decoration: BoxDecoration(
-                              color: AppColors.primaryOrange,
+
+                             boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        
+       // subtle grey shadow
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 4), // changes position of shadow
+      ),
+                             ],
+                            gradient: AppColors.buttonGradient,
                               borderRadius: BorderRadius.circular(0.1.rs)),
                           child: Icon(
                             Icons.add,
@@ -239,7 +253,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         onTap: () {
-                          //      showLocalNotification();
+              Navigator.push(context, MaterialPageRoute(builder: (context){
+
+
+
+                return AddNewCard();
+              }));
                         },
                       )
                     ],
