@@ -9,6 +9,7 @@ import 'package:savesure/view/auth/reset_password_screen.dart';
 import 'package:savesure/view/auth/success_reset_screen.dart';
 import 'package:savesure/view/home/home_screen.dart';
 import 'package:savesure/view/home/tab/cardAction/add_new_card.dart';
+import 'package:savesure/view/home/tab/cardAction/full_card_view.dart';
 
 import 'package:savesure/view/notification/cards_notification.dart';
 import 'package:savesure/view/settings/profile_screen.dart';
@@ -32,7 +33,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: HomeScreen(),
+      home: FullCardView(),
 
       theme: ThemeData(fontFamily: "outfit"),
 
