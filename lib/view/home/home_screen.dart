@@ -227,24 +227,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       InkWell(
-
-                    
                         child: Container(
                           height: 0.2.rs,
                           width: 0.2.rs,
                           decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey,
 
-                             boxShadow: [
-      BoxShadow(
-        color: Colors.grey,
-        
-       // subtle grey shadow
-        spreadRadius: 2,
-        blurRadius: 5,
-        offset: Offset(0, 4), // changes position of shadow
-      ),
-                             ],
-                            gradient: AppColors.buttonGradient,
+                                  // subtle grey shadow
+                                  spreadRadius: 2,
+                                  blurRadius: 5,
+                                  offset: Offset(
+                                      0, 4), // changes position of shadow
+                                ),
+                              ],
+                              gradient: AppColors.buttonGradient,
                               borderRadius: BorderRadius.circular(0.1.rs)),
                           child: Icon(
                             Icons.add,
@@ -253,12 +251,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context){
-
-
-
-                return AddNewCard();
-              }));
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return AddNewCard();
+                          }));
                         },
                       )
                     ],

@@ -28,20 +28,16 @@ class AddNewCard extends StatelessWidget {
                 ],
               ),
               rm.gapL(),
-        
-        
-        
               rm.gapM(),
-        
-                    Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     flex: 2,
                     child: Text(
                       'Title',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
@@ -70,17 +66,16 @@ class AddNewCard extends StatelessWidget {
                 ],
               ),
               rm.gapM(),
-        rm.gapM(),
-        
-                    Row(
+              rm.gapM(),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     flex: 2,
                     child: Text(
                       'Description',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
@@ -110,7 +105,6 @@ class AddNewCard extends StatelessWidget {
                 ],
               ),
               rm.gapM(),
-        
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -118,8 +112,8 @@ class AddNewCard extends StatelessWidget {
                     flex: 2,
                     child: Text(
                       'Type of Card: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
@@ -151,8 +145,7 @@ class AddNewCard extends StatelessWidget {
                           ),
                           border: OutlineInputBorder(),
                         ),
-                      )
-                      )
+                      ))
                 ],
               ),
               rm.gapM(),
@@ -163,8 +156,8 @@ class AddNewCard extends StatelessWidget {
                     flex: 2,
                     child: Text(
                       'Purchase Data: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
@@ -193,17 +186,15 @@ class AddNewCard extends StatelessWidget {
                 ],
               ),
               rm.gapM(),
-        
-        
-                          Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     flex: 2,
                     child: Text(
                       'Expriy Data: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
@@ -232,25 +223,23 @@ class AddNewCard extends StatelessWidget {
                 ],
               ),
               rm.gapM(),
-        
-        
-                    Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     flex: 2,
                     child: Text(
                       'Upload: ',
-                      style:
-                          TextStyle(fontWeight: FontWeight.w700, fontSize: rm.h2),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700, fontSize: rm.h2),
                     ),
                   ),
                   rm.gapS(isHorizontal: true),
                   Expanded(
                       flex: 5,
                       child: TextField(
-                           readOnly: true,
-                   //     keyboardType: TextInputType,
+                        readOnly: true,
+                        //     keyboardType: TextInputType,
                         //    controller: Controller,
                         style: TextStyle(
                             fontSize: rm.h3, color: AppColors.primaryOrange),
@@ -271,66 +260,51 @@ class AddNewCard extends StatelessWidget {
                       ))
                 ],
               ),
-              
-        
-        
-            rm.gapXL(),
-             
-         Row(
-
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-          children: [
-
-                
-              Container(
-               // width: double.infinity,
-                height: rm.shortestSide * 0.10,
-                child: OutlinedButton(
-                  style: OutlinedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+              rm.gapXL(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    // width: double.infinity,
+                    height: rm.shortestSide * 0.10,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text(
+                        "Back",
+                        style: TextStyle(fontSize: rm.screenWidth * 0.045),
+                      ),
                     ),
                   ),
-                  onPressed: () {
-
-
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "Back",
-                    style: TextStyle(fontSize: rm.screenWidth * 0.045),
-                  ),
-                ),
-              ),
-        
-        
-        
-        
-         InkWell(
-         onTap: (){},
-           child: Container(
-                   
-                 height: rm.shortestSide * 0.10,
-                 width: rm.shortestSide*0.20  ,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
-                    borderRadius: BorderRadius.circular(15),
-                    color: Colors.amber,
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Save",
-                      style: TextStyle(
-                          color: Colors.white, fontSize: rm.buttonText * 1.5),
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      height: rm.shortestSide * 0.10,
+                      width: rm.shortestSide * 0.20,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.amber,
+                      ),
+                      child: Center(
+                        child: Text(
+                          "Save",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: rm.buttonText * 1.5),
+                        ),
+                      ),
                     ),
                   ),
-                ),
-         ),
-           
-          ],
-         )
+                ],
+              )
             ],
           ),
         ),
