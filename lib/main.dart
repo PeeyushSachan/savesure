@@ -33,7 +33,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: FullCardView(),
+      home: HomeScreen(),
 
       theme: ThemeData(fontFamily: "outfit"),
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:responsive_media/responsive_media.dart';
+import 'package:savesure/view/home/tab/cardAction/full_card_view.dart';
 
 class SsWarrantyCard extends StatefulWidget {
 //SsWarrantyCard({});
@@ -176,13 +177,20 @@ class _SsWarrantyCardState extends State<SsWarrantyCard> {
                           height: rm.shortestSide * 0.069,
                           width: rm.shortestSide * 0.2,
                           child: OutlinedButton(
-                              onPressed: () {},
+                              onPressed: () {
+
+
+                                FullCardView();
+                              },
                               style: OutlinedButton.styleFrom(
                                   elevation: 5,
                                   side: BorderSide(color: Colors.white),
                                   padding: EdgeInsets.all(0),
                                   backgroundColor:
                                       Color.fromARGB(75, 49, 40, 40)),
+
+                                      
+                                      
                               child: Text(
                                 "View Details",
                                 style: TextStyle(
