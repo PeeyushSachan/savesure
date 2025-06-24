@@ -178,9 +178,14 @@ class _SsWarrantyCardState extends State<SsWarrantyCard> {
                           width: rm.shortestSide * 0.2,
                           child: OutlinedButton(
                               onPressed: () {
-
-
-                                FullCardView();
+                                Navigator.push(
+                                    context,
+                                    PageRouteBuilder(
+                                        transitionDuration:
+                                            Duration(seconds: 1),
+                                        pageBuilder: (context, anm1, anm2) {
+                                          return FullCardView();
+                                        }));
                               },
                               style: OutlinedButton.styleFrom(
                                   elevation: 5,
@@ -188,9 +193,6 @@ class _SsWarrantyCardState extends State<SsWarrantyCard> {
                                   padding: EdgeInsets.all(0),
                                   backgroundColor:
                                       Color.fromARGB(75, 49, 40, 40)),
-
-                                      
-                                      
                               child: Text(
                                 "View Details",
                                 style: TextStyle(

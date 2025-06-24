@@ -1,12 +1,39 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
 import 'package:savesure/widgets/ss_textField.dart';
 
-class AddNewCard extends StatelessWidget {
+class AddNewCard extends StatefulWidget {
   const AddNewCard({Key? key}) : super(key: key);
 
+  @override
+  State<AddNewCard> createState() => _AddNewCardState();
+}
+
+class _AddNewCardState extends State<AddNewCard> {
+
+
+
+    String filePathText = "";
+       String fileNameText = "";
+
+  void filePicker() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ["jpg", "pdf", "png"],
+    );
+
+    if (result != null  && result.files.first.path!= null)  {
+      
+      setState(() {
+        filePathText = result.files.first.path!;
+
+        fileNameText = result.files.first.name;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     ResponsiveMedia.init(context); // Initialize here
@@ -237,29 +264,40 @@ class AddNewCard extends StatelessWidget {
                   rm.gapS(isHorizontal: true),
                   Expanded(
                       flex: 5,
-                      child: TextField(
-                        readOnly: true,
-                        //     keyboardType: TextInputType,
-                        //    controller: Controller,
-                        style: TextStyle(
-                            fontSize: rm.h3, color: AppColors.primaryOrange),
-                        decoration: InputDecoration(
-                          hintText: "Upload Image or PDF",
-                          hintStyle: TextStyle(
-                            fontSize: rm.h3,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                              //      borderRadius: BorderRadius.circular(15),
-                              borderSide:
-                                  BorderSide(color: AppColors.primaryOrange)),
-                          contentPadding: EdgeInsets.symmetric(
-                              vertical: rm.shortestSide * 0.03,
-                              horizontal: rm.shortestSide * 0.02),
-                          border: OutlineInputBorder(),
-                        ),
-                      ))
+                      child: ElevatedButton(onPressed: (){
+
+
+                        filePicker();
+                      }, child: Text("choose file"))
+                      
+                      //  TextField(
+                      //   readOnly: true,
+                      //   //     keyboardType: TextInputType,
+                      //   //    controller: Controller,
+                      //   style: TextStyle(
+                      //       fontSize: rm.h3, color: AppColors.primaryOrange),
+                      //   decoration: InputDecoration(
+                      //     hintText: "Upload Image or PDF",
+                      //     hintStyle: TextStyle(
+                      //       fontSize: rm.h3,
+                      //     ),
+                      //     focusedBorder: OutlineInputBorder(
+                      //         //      borderRadius: BorderRadius.circular(15),
+                      //         borderSide:
+                      //             BorderSide(color: AppColors.primaryOrange)),
+                      //     contentPadding: EdgeInsets.symmetric(
+                      //         vertical: rm.shortestSide * 0.03,
+                      //         horizontal: rm.shortestSide * 0.02),
+                      //     border: OutlineInputBorder(),
+                      //   ),
+                      // )
+                      
+                      ),
+
+                     
                 ],
               ),
+               Text(fileNameText),
               rm.gapXL(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
