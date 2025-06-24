@@ -1,14 +1,53 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_media/responsive_media.dart';
 import 'package:savesure/core/theme/app_colors.dart';
 import 'package:savesure/widgets/ss_textField.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+
+
+
+class _ProfileScreenState extends State<ProfileScreen> {
+
+
+ String filePathText = "";
+  String fileNameText = "";
+
+  
+     void filePicker() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ["jpg", "png"],
+    );
+
+    if (result != null && result.files.first.path != null) {
+
+      print( result.files.first.name);
+      setState(() {
+        filePathText = result.files.first.path!;
+
+        fileNameText = result.files.first.name;
+      });
+    }else{
+
+
+      print("Failed");
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+
+
     ResponsiveMedia.init(context); // insitalization
 
     final rm = ResponsiveMedia.instance; // Use after init(context)
@@ -138,7 +177,12 @@ class ProfileScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+
+                      editProfile(context: context , rm: rm  );
+
+
+                    },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -197,5 +241,349 @@ class ProfileScreen extends StatelessWidget {
         )
       ]),
     ));
+
+
+  
+  }
+
+  editProfile({required BuildContext  context , required rm  }){
+
+   showModalBottomSheet(
+    
+ isScrollControlled: true,
+    context: context, 
+   
+   
+   
+   builder: (context){
+
+
+
+
+return  Expanded(
+
+  child: SingleChildScrollView(
+    child: Padding(
+         padding: rm.paddingHorizontal(5),
+         child: Column(
+           children: [
+             rm.gapXL(),
+             Row(
+               children: [
+                 Text(
+                   "Edit your Profile",
+                   style: TextStyle(
+                       fontSize: rm.title, color: AppColors.primaryOrange),
+                 ),
+               ],
+             ),
+             rm.gapL(),
+             rm.gapM(),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     'First Name',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: TextField(
+                       keyboardType: TextInputType.text,
+                       //    controller: Controller,
+                       style: TextStyle(
+                           fontSize: rm.h3, color: AppColors.primaryOrange),
+                       decoration: InputDecoration(
+                         hintText: "Enter Your First Name",
+                         hintStyle: TextStyle(
+                           fontSize: rm.h3,
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             //      borderRadius: BorderRadius.circular(15),
+                             borderSide:
+                                 BorderSide(color: AppColors.primaryOrange)),
+                         contentPadding: EdgeInsets.symmetric(
+                             vertical: rm.shortestSide * 0.03,
+                             horizontal: rm.shortestSide * 0.02),
+                         border: OutlineInputBorder(),
+                       ),
+                     ))
+               ],
+             ),
+             rm.gapM(),
+
+
+
+                 Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     'Last Name',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: TextField(
+                       keyboardType: TextInputType.text,
+                       //    controller: Controller,
+                       style: TextStyle(
+                           fontSize: rm.h3, color: AppColors.primaryOrange),
+                       decoration: InputDecoration(
+                         hintText: "Enter Your Last Name ",
+                         hintStyle: TextStyle(
+                           fontSize: rm.h3,
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             //      borderRadius: BorderRadius.circular(15),
+                             borderSide:
+                                 BorderSide(color: AppColors.primaryOrange)),
+                         contentPadding: EdgeInsets.symmetric(
+                             vertical: rm.shortestSide * 0.03,
+                             horizontal: rm.shortestSide * 0.02),
+                         border: OutlineInputBorder(),
+                       ),
+                     ))
+               ],
+             ),
+             rm.gapM(),
+      
+      
+
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     'Gender: ',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: TextField(
+                       //    controller: Controller,
+                       style: TextStyle(
+                           fontSize: rm.h3, color: AppColors.primaryOrange),
+                       decoration: InputDecoration(
+                         hintText: "Choose card type",
+                         hintStyle: TextStyle(
+                           fontSize: rm.h3,
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             //      borderRadius: BorderRadius.circular(15),
+                             borderSide:
+                                 BorderSide(color: AppColors.primaryOrange)),
+                         contentPadding: EdgeInsets.symmetric(
+                             vertical: rm.shortestSide * 0.03,
+                             horizontal: rm.shortestSide * 0.02),
+                         suffixIcon: Padding(
+                           padding: rm.paddingHorizontal(3),
+                           child: Icon(
+                             Icons.arrow_drop_down,
+                             color: AppColors.primaryOrange,
+                             size: rm.shortestSide * 0.08,
+                           ),
+                         ),
+                         border: OutlineInputBorder(),
+                       ),
+                     ))
+               ],
+             ),
+             rm.gapM(),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     'Email: ',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: TextField(
+                       keyboardType: TextInputType.datetime,
+                       //    controller: Controller,
+                       style: TextStyle(
+                           fontSize: rm.h3, color: AppColors.primaryOrange),
+                       decoration: InputDecoration(
+                         hintText: "Enter The Email",
+                         hintStyle: TextStyle(
+                           fontSize: rm.h3,
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             //      borderRadius: BorderRadius.circular(15),
+                             borderSide:
+                                 BorderSide(color: AppColors.primaryOrange)),
+                         contentPadding: EdgeInsets.symmetric(
+                             vertical: rm.shortestSide * 0.03,
+                             horizontal: rm.shortestSide * 0.02),
+                         border: OutlineInputBorder(),
+                       ),
+                     ))
+               ],
+             ),
+             rm.gapM(),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     ' Mobile: ',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: TextField(
+                       keyboardType: TextInputType.datetime,
+                       //    controller: Controller,
+                       style: TextStyle(
+                           fontSize: rm.h3, color: AppColors.primaryOrange),
+                       decoration: InputDecoration(
+                         hintText: "Enter The Mobile No.",
+                         hintStyle: TextStyle(
+                           fontSize: rm.h3,
+                         ),
+                         focusedBorder: OutlineInputBorder(
+                             //      borderRadius: BorderRadius.circular(15),
+                             borderSide:
+                                 BorderSide(color: AppColors.primaryOrange)),
+                         contentPadding: EdgeInsets.symmetric(
+                             vertical: rm.shortestSide * 0.03,
+                             horizontal: rm.shortestSide * 0.02),
+                         border: OutlineInputBorder(),
+                       ),
+                     ))
+               ],
+             ),
+             rm.gapM(),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Expanded(
+                   flex: 2,
+                   child: Text(
+                     'Profile Pic: ',
+                     style: TextStyle(
+                         fontWeight: FontWeight.w700, fontSize: rm.h2),
+                   ),
+                 ),
+                 rm.gapS(isHorizontal: true),
+                 Expanded(
+                     flex: 5,
+                     child: ElevatedButton(
+                         onPressed: () {
+filePicker();
+                      
+                           
+                         },
+                         child: Text("choose file"))
+       
+                     //  TextField(
+                     //   readOnly: true,
+                     //   //     keyboardType: TextInputType,
+                     //   //    controller: Controller,
+                     //   style: TextStyle(
+                     //       fontSize: rm.h3, color: AppColors.primaryOrange),
+                     //   decoration: InputDecoration(
+                     //     hintText: "Upload Image or PDF",
+                     //     hintStyle: TextStyle(
+                     //       fontSize: rm.h3,
+                     //     ),
+                     //     focusedBorder: OutlineInputBorder(
+                     //         //      borderRadius: BorderRadius.circular(15),
+                     //         borderSide:
+                     //             BorderSide(color: AppColors.primaryOrange)),
+                     //     contentPadding: EdgeInsets.symmetric(
+                     //         vertical: rm.shortestSide * 0.03,
+                     //         horizontal: rm.shortestSide * 0.02),
+                     //     border: OutlineInputBorder(),
+                     //   ),
+                     // )
+       
+                     ),
+               ],
+             ),
+             Text(fileNameText),
+             rm.gapXL(),
+             Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+               children: [
+                 Container(
+                   // width: double.infinity,
+                   height: rm.shortestSide * 0.10,
+                   child: OutlinedButton(
+                     style: OutlinedButton.styleFrom(
+                       shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(15),
+                       ),
+                     ),
+                     onPressed: () {
+                       Navigator.pop(context);
+                     },
+                     child: Text(
+                       "Back",
+                       style: TextStyle(fontSize: rm.screenWidth * 0.045),
+                     ),
+                   ),
+                 ),
+                 InkWell(
+                   onTap: () {},
+                   child: Container(
+                     height: rm.shortestSide * 0.10,
+                     width: rm.shortestSide * 0.20,
+                     decoration: BoxDecoration(
+                       gradient: LinearGradient(
+                           colors: [Color(0xFFFA6C12), Color(0xFFC64AA1)]),
+                       borderRadius: BorderRadius.circular(15),
+                       color: Colors.amber,
+                     ),
+                     child: Center(
+                       child: Text(
+                         "Save",
+                         style: TextStyle(
+                             color: Colors.white,
+                             fontSize: rm.buttonText * 1.5),
+                       ),
+                     ),
+                   ),
+                 ),
+               ],
+             ),
+          
+          
+          rm.gapL()
+          
+          
+          
+           ],
+         ),
+       ),
+  ),
+);
+   
+
+
+    });
   }
 }

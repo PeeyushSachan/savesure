@@ -11,8 +11,6 @@ class FullCardView extends StatefulWidget {
 }
 
 class _FullCardViewState extends State<FullCardView> {
-
-
   @override
   Widget build(BuildContext context) {
     ResponsiveMedia.init(context); // Initialize here

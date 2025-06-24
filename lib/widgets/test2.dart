@@ -1,54 +1,60 @@
-import 'dart:io';
-
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
-class Test2 extends StatefulWidget {
-  const Test2({Key? key}) : super(key: key);
+class BottomCardDemo extends StatelessWidget {
+  const BottomCardDemo({super.key});
 
-  @override
-  State<Test2> createState() => _Test2State();
-}
-
-class _Test2State extends State<Test2> {
-  String filePathText = "";
-  void pickFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ["jpg", "pdf", "png"],
+  void showBottomCard(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      backgroundColor: Colors.white,
+      builder: (context) {
+        return Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min, // important for height
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Container(
+                  width: 40,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[400],
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+              SizedBox(height: 16),
+              Text("Bottom Card Title",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              SizedBox(height: 10),
+              Text("Yeh ek bottom se open hone wala card view hai."),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context); // close bottom sheet
+                },
+                child: Text("Close"),
+              ),
+            ],
+          ),
+        );
+      },
     );
-
-    if (result != null && result.files.single.path != null) {
-      ///Load result and file details
-      ///
-      PlatformFile file = result.files.first;
-      print(file.name);
-      print(file.bytes);
-      print(file.path);
-      print(file.size);
-
-      File nomarlfile = File(result.files.single.path!);
-
-      setState(() {
-        filePathText = file.path!;
-      });
-    } else {
-      /// User canceled the picker
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-                pickFile();
-              },
-              child: Text("upload here")),
-          Text(filePathText),
-        ],
+      appBar: AppBar(title: Text("Bottom Card View")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => showBottomCard(context),
+          child: Text("Open Bottom Card"),
+        ),
       ),
     );
   }

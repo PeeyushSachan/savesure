@@ -13,11 +13,8 @@ class AddNewCard extends StatefulWidget {
 }
 
 class _AddNewCardState extends State<AddNewCard> {
-
-
-
-    String filePathText = "";
-       String fileNameText = "";
+  String filePathText = "";
+  String fileNameText = "";
 
   void filePicker() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -25,8 +22,7 @@ class _AddNewCardState extends State<AddNewCard> {
       allowedExtensions: ["jpg", "pdf", "png"],
     );
 
-    if (result != null  && result.files.first.path!= null)  {
-      
+    if (result != null && result.files.first.path != null) {
       setState(() {
         filePathText = result.files.first.path!;
 
@@ -34,6 +30,7 @@ class _AddNewCardState extends State<AddNewCard> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     ResponsiveMedia.init(context); // Initialize here
@@ -264,12 +261,12 @@ class _AddNewCardState extends State<AddNewCard> {
                   rm.gapS(isHorizontal: true),
                   Expanded(
                       flex: 5,
-                      child: ElevatedButton(onPressed: (){
+                      child: ElevatedButton(
+                          onPressed: () {
+                            filePicker();
+                          },
+                          child: Text("choose file"))
 
-
-                        filePicker();
-                      }, child: Text("choose file"))
-                      
                       //  TextField(
                       //   readOnly: true,
                       //   //     keyboardType: TextInputType,
@@ -291,13 +288,11 @@ class _AddNewCardState extends State<AddNewCard> {
                       //     border: OutlineInputBorder(),
                       //   ),
                       // )
-                      
-                      ),
 
-                     
+                      ),
                 ],
               ),
-               Text(fileNameText),
+              Text(fileNameText),
               rm.gapXL(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
