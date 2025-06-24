@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:savesure/view/auth/login_screen.dart';
-
+import 'package:savesure/view/home/home_screen.dart';
 
 import 'package:savesure/view/notification/cards_notification.dart';
+import 'package:savesure/widgets/ss_warranty_card.dart';
 // आपकी स्क्रीन
 
 // ✅ Main Function (entry point)
 Future<void> main() async {
-  WidgetsFlutterBinding
-      .ensureInitialized(); 
+  WidgetsFlutterBinding.ensureInitialized();
   await initializeNotifications(); // Plugin init function call
   await requestNotificationPermissionIfNeeded(); // ⬅️ ASK FOR PERMISSION HERE
-  runApp(Main()); // App run 
+  runApp(Main()); // App run
 }
 
 // ✅ Main App Widget
@@ -23,7 +23,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:LoginScreen(), // main screen
+      home:HomeScreen(), // main screen
     );
   }
 }
