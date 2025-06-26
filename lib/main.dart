@@ -12,6 +12,7 @@ import 'package:savesure/view/home/tab/cardAction/add_new_card.dart';
 import 'package:savesure/view/home/tab/cardAction/full_card_view.dart';
 
 import 'package:savesure/view/notification/cards_notification.dart';
+
 import 'package:savesure/view/settings/profile_screen.dart';
 
 import 'package:savesure/widgets/test2.dart';
@@ -33,7 +34,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: ProfileScreen(),
+      home: HomeScreen(),
 
       theme: ThemeData(fontFamily: "outfit"),
 

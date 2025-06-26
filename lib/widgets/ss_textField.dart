@@ -32,7 +32,7 @@ class SsTextField extends StatelessWidget {
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(vertical: rm.shortestSide * 0.05),
         prefixIcon: Padding(
-          padding: rm.paddingHorizontal(3),
+          padding: rm.paddingHorizontal(5.2),   ////  why it is occring issue 
           child: Icon(
             icon,
             color: AppColors.primaryOrange,
