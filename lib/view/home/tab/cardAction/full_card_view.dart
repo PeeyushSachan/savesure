@@ -71,7 +71,7 @@ class _FullCardViewState extends State<FullCardView> {
                             ),
                             child: Center(
                               child: Text(
-                                "30 Days Left",
+                                "30D Left",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: rm.buttonText),
@@ -224,85 +224,6 @@ class _FullCardViewState extends State<FullCardView> {
                         ],
                       ),
                       rm.gap(size: 15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        spacing: rm.shortestSide * 0.023,
-                        children: [
-                          SizedBox(
-                            height: rm.shortestSide * 0.08,
-                            width: rm.shortestSide * 0.23,
-                            child: OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                    elevation: 5,
-                                    side: BorderSide(color: Colors.white),
-                                    padding: EdgeInsets.all(0),
-                                    backgroundColor:
-                                        Color.fromARGB(75, 49, 40, 40)),
-                                child: Text(
-                                  "View Details",
-                                  style: TextStyle(
-                                      fontSize: rm.shortestSide * 0.025,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w600),
-                                )),
-                          ),
-                          SizedBox(
-                            height: rm.shortestSide * 0.08,
-                            width: rm.shortestSide * 0.08,
-                            child: IconButton.outlined(
-                              style: OutlinedButton.styleFrom(
-                                  elevation: 5,
-                                  side: BorderSide(
-                                      color: Color.fromARGB(255, 218, 87, 5)),
-                                  padding: EdgeInsets.all(0),
-                                  backgroundColor: Colors.white),
-                              onPressed: () {},
-                              icon: Icon(Icons.download),
-                              iconSize: rm.h5,
-                              color: Color.fromARGB(255, 218, 87, 5),
-                            ),
-                          ),
-                          SizedBox(
-                            height: rm.shortestSide * 0.08,
-                            width: rm.shortestSide * 0.23,
-                            child: OutlinedButton(
-                                onPressed: () {},
-                                style: OutlinedButton.styleFrom(
-                                    elevation: 5,
-                                    side: BorderSide(color: Colors.white),
-                                    padding: EdgeInsets.all(0),
-                                    backgroundColor:
-                                        Color.fromARGB(75, 49, 40, 40)),
-                                child: Text(
-                                  "Edit",
-                                  style: TextStyle(
-                                      fontSize: rm.shortestSide * 0.025,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                )),
-                          ),
-                          SizedBox(
-                            height: rm.shortestSide * 0.08,
-                            width: rm.shortestSide * 0.08,
-                            child: IconButton.outlined(
-                              style: OutlinedButton.styleFrom(
-                                  elevation: 5,
-                                  side: BorderSide(
-                                      color: Color.fromARGB(255, 218, 87, 5)),
-                                  padding: EdgeInsets.all(0),
-                                  backgroundColor: Colors.white),
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.delete,
-                                size: rm.h4,
-                              ),
-                              iconSize: rm.h5,
-                              color: Color.fromARGB(255, 218, 87, 5),
-                            ),
-                          )
-                        ],
-                      )
                     ],
                   ),
 

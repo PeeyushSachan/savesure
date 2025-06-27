@@ -137,23 +137,39 @@ class _HomeScreenState extends State<HomeScreen> {
                               borderSide: BorderSide(
                                   color: AppColors.borderOrange, width: 1),
                             ),
-                            suffix: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.primaryOrange,
-                                    foregroundColor: Colors.white,
-                                    fixedSize: Size(82, 31),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10))),
-                                onPressed: () {},
+
+                            suffix: Container(
+                              decoration: BoxDecoration(
+                                  color: AppColors.primaryOrange,
+                                  borderRadius: BorderRadius.circular(5)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
                                 child: Text(
                                   "Search",
-                                  style: TextStyle(fontSize: 10),
-                                )),
+                                  style: TextStyle(
+                                      fontSize: 12, color: Colors.white),
+                                ),
+                              ),
+                            ),
+
+                            // suffix: ElevatedButton(
+                            //     style: ElevatedButton.styleFrom(
+                            //         backgroundColor: AppColors.primaryOrange,
+                            //         foregroundColor: Colors.white,
+                            //         fixedSize: Size(82, 31),
+                            //         shape: RoundedRectangleBorder(
+                            //             borderRadius:
+                            //                 BorderRadius.circular(10))),
+                            //     onPressed: () {},
+                            //     child: Text(
+                            //       "Search",
+                            //       style: TextStyle(fontSize: 10),
+                            //     )),
+
                             hintText: "Search...",
                             border: OutlineInputBorder(),
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 12),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 5),
                           ),
                         ),
                       ]
