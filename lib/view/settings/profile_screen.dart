@@ -19,6 +19,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String filePathText = "";
   String fileNameText = "";
 
+
+  String? dropDownValue;
+
   void filePicker() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -343,13 +346,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       rm.gapS(isHorizontal: true),
                       Expanded(
                           flex: 5,
-                          child: TextField(
-                            //    controller: Controller,
-                            style: TextStyle(
-                                fontSize: rm.h3,
-                                color: AppColors.primaryOrange),
+                          child: DropdownButtonFormField(
                             decoration: InputDecoration(
-                              hintText: "Choose card type",
+                              hintText: "Select Your Gender",
                               hintStyle: TextStyle(
                                 fontSize: rm.h3,
                               ),
@@ -360,17 +359,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               contentPadding: EdgeInsets.symmetric(
                                   vertical: rm.shortestSide * 0.03,
                                   horizontal: rm.shortestSide * 0.02),
-                              suffixIcon: Padding(
-                                padding: rm.paddingHorizontal(3.0),
-                                child: Icon(
-                                  Icons.arrow_drop_down,
-                                  color: AppColors.primaryOrange,
-                                  size: rm.shortestSide * 0.08,
-                                ),
-                              ),
                               border: OutlineInputBorder(),
                             ),
-                          ))
+                            value: dropDownValue,
+                            items: ['Male', 'Female'].map((gender) {
+                              return DropdownMenuItem<String>(
+                                value: gender,
+                                child: Text(
+                                  gender,
+                                  style:
+                                      TextStyle(color: AppColors.primaryOrange),
+                                ),
+                              );
+                            }).toList(),
+
+
+
+                            onChanged: (value) {
+                              setState(() {
+                                dropDownValue = value;
+                              });
+                            },
+                            validator: (value) =>
+                                value == null ? 'Please select gender' : null,
+                          )
+                          //
+
+                          ),
                     ],
                   ),
                   rm.gapM(),

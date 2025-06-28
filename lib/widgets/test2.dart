@@ -1,59 +1,60 @@
 import 'package:flutter/material.dart';
 
-class BottomCardDemo extends StatelessWidget {
-  const BottomCardDemo({super.key});
+class GenderDropdownForm extends StatefulWidget {
+  @override
+  _GenderDropdownFormState createState() => _GenderDropdownFormState();
+}
 
-  void showBottomCard(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      backgroundColor: Colors.white,
-      builder: (context) {
-        return Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // important for height
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Container(
-                  width: 40,
-                  height: 4,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
-              ),
-              SizedBox(height: 16),
-              Text("Bottom Card Title",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(height: 10),
-              Text("Yeh ek bottom se open hone wala card view hai."),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context); // close bottom sheet
-                },
-                child: Text("Close"),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
+class _GenderDropdownFormState extends State<GenderDropdownForm> {
+  final _formKey = GlobalKey<FormState>();
+  String? _name;
+  String? _selectedGender;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Bottom Card View")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => showBottomCard(context),
-          child: Text("Open Bottom Card"),
+ 
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              // Name input
+
+              // Gender Dropdown
+              DropdownButtonFormField<String>(
+                decoration: InputDecoration(labelText: 'Gender'),
+                value: _selectedGender,
+                items: ['Male', 'Female'].map((gender) {
+                  return DropdownMenuItem<String>(
+                    value: gender,
+                    child: Text(gender),
+                  );
+                }).toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _selectedGender = value;
+                  });
+                },
+                validator: (value) =>
+                    value == null ? 'Please select gender' : null,
+              ),
+
+              SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    print("Name: $_name");
+                    print("Gender: $_selectedGender");
+                    // You can now use these values or submit to backend
+                  }
+                },
+                child: Text('Submit'),
+              ),
+            ],
+          ),
         ),
       ),
     );

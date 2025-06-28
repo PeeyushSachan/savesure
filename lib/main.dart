@@ -34,7 +34,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: HomeScreen(),
+      home: ProfileScreen(),
 
       theme: ThemeData(fontFamily: "outfit"),
 
